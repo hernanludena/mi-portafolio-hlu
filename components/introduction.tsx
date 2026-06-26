@@ -15,6 +15,7 @@ const Introduction = () => {
                     <h1 className="mb-3 w-full text-[clamp(1.5rem,6.8vw,3rem)] font-bold leading-[1.12] tracking-tight text-darkBg dark:text-white sm:mb-4">
                         <TypingHeadline
                             key={lang}
+                            speed={18}
                             lines={[
                                 t("hero.headline.line1"),
                                 t("hero.headline.line2"),

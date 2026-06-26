@@ -8,7 +8,7 @@ type TypingHeadlineProps = {
     className?: string;
 };
 
-export const TypingHeadline = ({ lines, speed = 45, className }: TypingHeadlineProps) => {
+export const TypingHeadline = ({ lines, speed = 22, className }: TypingHeadlineProps) => {
     const [lineIndex, setLineIndex] = useState(0);
     const [charIndex, setCharIndex] = useState(0);
     const [texts, setTexts] = useState(() => lines.map(() => ""));
@@ -29,7 +29,7 @@ export const TypingHeadline = ({ lines, speed = 45, className }: TypingHeadlineP
                 const pause = setTimeout(() => {
                     setLineIndex((i) => i + 1);
                     setCharIndex(0);
-                }, 350);
+                }, 120);
                 return () => clearTimeout(pause);
             }
             return;

@@ -12,7 +12,7 @@ const CounterServices = () => {
                 <div key={id} className={`${lineRight && 'ltr'}`}>
                     <div className={`${lineRight && 'px-4 border-2 border-transparent md:border-e-gray-100'} ${lineRightMobile && 'border-e-gray-100'}`} >
                         <p className="flex mb-2 text-2xl font-extrabold md:text-4xl text-secondary">
-                            + <CountUp end={endCounter} start={0} duration={5} />
+                            + <CountUp end={endCounter} start={0} duration={1.5} />
                         </p>
                         <p className="text-xs uppercase max-w-[100px]">
                             {t(textKey)}
