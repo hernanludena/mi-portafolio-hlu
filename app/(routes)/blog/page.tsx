@@ -75,44 +75,66 @@ const BlogPage = () => {
 
                 {/* Grid de posts */}
                 <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                    {filteredPosts.map((post) => (
-                        <Link
-                            key={post.id}
-                            href={post.link}
-                            target="_blank"
-                            className="flex flex-col overflow-hidden transition-all border shadow-sm rounded-2xl border-black/10 bg-black/[0.03] dark:border-white/15 dark:bg-white/5 hover:border-secondary hover:-translate-y-1"
-                        >
-                            <Image
-                                src={post.image}
-                                alt={post.title}
-                                width={400}
-                                height={200}
-                                className="object-cover w-full h-44"
-                            />
-                            <div className="flex flex-col flex-1 p-4">
-                                <h3 className="text-lg font-bold leading-snug">{post.title}</h3>
-                                <p className="mt-2 text-sm opacity-80">
-                                    {post.excerpt}{" "}
-                                    <span className="text-secondary">{t("blog.readmore")}</span>
-                                </p>
-                                <div className="flex items-center gap-4 mt-4 text-xs opacity-70">
-                                    <span className="flex items-center gap-1">
-                                        <Clock size={14} /> {post.readTime}
-                                    </span>
-                                    <span className="flex items-center gap-1">
-                                        <Calendar size={14} /> {post.date}
-                                    </span>
-                                </div>
-                                <div className="flex flex-wrap gap-2 mt-3">
-                                    {post.tags.map((tag) => (
-                                        <span key={tag} className="px-2 py-0.5 text-xs rounded-full bg-secondary/15 text-secondary">
-                                            {tag}
+                    {filteredPosts.map((post) => {
+                        const isExternal = post.link.startsWith("http");
+                        const Card = (
+                            <>
+                                <Image
+                                    src={post.image}
+                                    alt={post.title}
+                                    width={400}
+                                    height={200}
+                                    className="object-cover w-full h-44"
+                                />
+                                <div className="flex flex-col flex-1 p-4">
+                                    <h3 className="text-lg font-bold leading-snug">{post.title}</h3>
+                                    <p className="mt-2 text-sm opacity-80">
+                                        {post.excerpt}{" "}
+                                        <span className="text-secondary">{t("blog.readmore")}</span>
+                                    </p>
+                                    <div className="flex items-center gap-4 mt-4 text-xs opacity-70">
+                                        <span className="flex items-center gap-1">
+                                            <Clock size={14} /> {post.readTime}
                                         </span>
-                                    ))}
+                                        <span className="flex items-center gap-1">
+                                            <Calendar size={14} /> {post.date}
+                                        </span>
+                                    </div>
+                                    <div className="flex flex-wrap gap-2 mt-3">
+                                        {post.tags.map((tag) => (
+                                            <span key={tag} className="px-2 py-0.5 text-xs rounded-full bg-secondary/15 text-secondary">
+                                                {tag}
+                                            </span>
+                                        ))}
+                                    </div>
                                 </div>
-                            </div>
-                        </Link>
-                    ))}
+                            </>
+                        );
+
+                        if (isExternal) {
+                            return (
+                                <a
+                                    key={post.id}
+                                    href={post.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex flex-col overflow-hidden transition-all border shadow-sm rounded-2xl border-black/10 bg-black/[0.03] dark:border-white/15 dark:bg-white/5 hover:border-secondary hover:-translate-y-1"
+                                >
+                                    {Card}
+                                </a>
+                            );
+                        }
+
+                        return (
+                            <Link
+                                key={post.id}
+                                href={post.link}
+                                className="flex flex-col overflow-hidden transition-all border shadow-sm rounded-2xl border-black/10 bg-black/[0.03] dark:border-white/15 dark:bg-white/5 hover:border-secondary hover:-translate-y-1"
+                            >
+                                {Card}
+                            </Link>
+                        );
+                    })}
                 </div>
             </ContainerPage>
         </>

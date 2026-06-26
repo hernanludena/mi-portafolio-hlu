@@ -47,6 +47,9 @@ const dictionary = {
         "blog.readmore": "leer más",
         "blog.all": "Todos",
         "blog.results": "Resultados encontrados",
+        "blog.back": "Todas las publicaciones",
+        "blog.updated": "Actualizado el",
+        "blog.read": "de lectura",
 
         "contact.title1": "Hablemos,",
         "contact.title2": "contáctame",
@@ -99,6 +102,9 @@ const dictionary = {
         "blog.readmore": "read more",
         "blog.all": "All",
         "blog.results": "Results found",
+        "blog.back": "All publications",
+        "blog.updated": "Updated on",
+        "blog.read": "read",
 
         "contact.title1": "Let's talk,",
         "contact.title2": "contact me",

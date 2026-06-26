@@ -38,11 +38,20 @@ export const itemsNavbar = [
     { id: 5, key: "nav.contact", link: "/contact" },
 ] as const;
 
-// Entradas del blog (ejemplo, estilo Bryan)
-// NOTA: posts de ejemplo. Reemplaza títulos, fechas y enlaces por tus artículos reales.
+// Entradas del blog
 export const dataBlog = [
     {
         id: 1,
+        title: "Large Language Model Operations (LLMOps)",
+        excerpt: "Qué implica llevar modelos de lenguaje a producción: despliegue, monitoreo, costos y evaluación continua.",
+        image: "/image-5.jpg",
+        date: "26/06/2026",
+        readTime: "9 min",
+        tags: ["AIEngineering", "LLM", "LLMApplications"],
+        link: "/blog/llmops",
+    },
+    {
+        id: 2,
         title: "Diseño de microservicios event-driven para banca",
         excerpt: "Cómo modelar el ciclo de vida de una transacción con eventos, colas y servicios desacoplados en entornos bancarios.",
         image: "/image-1.jpg",
@@ -52,23 +61,13 @@ export const dataBlog = [
         link: "#!",
     },
     {
-        id: 2,
+        id: 3,
         title: "De monolito a microservicios: lecciones reales",
         excerpt: "Estrategias de migración progresiva que apliqué en sistemas de core bancario sin frenar al negocio.",
         image: "/image-2.jpg",
         date: "10/12/2025",
         readTime: "8 min",
         tags: ["Architecture", "Java"],
-        link: "#!",
-    },
-    {
-        id: 3,
-        title: "Large Language Model Operations (LLMOps)",
-        excerpt: "Qué implica llevar modelos de lenguaje a producción: despliegue, monitoreo, costos y evaluación continua.",
-        image: "/image-5.jpg",
-        date: "28/11/2025",
-        readTime: "9 min",
-        tags: ["AI", "DevOps"],
         link: "#!",
     },
     {

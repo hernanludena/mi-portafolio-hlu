@@ -47,3 +47,58 @@ main {
     text-wrap: balance;
   }
 }
+
+/* === Estilos de artículo de blog (estilo Bryan) === */
+.blog-prose h2 {
+  @apply mt-10 mb-4 text-2xl font-bold md:text-3xl;
+}
+
+.blog-prose h3 {
+  @apply mt-8 mb-3 text-xl font-semibold md:text-2xl;
+}
+
+.blog-prose h4 {
+  @apply mt-6 mb-2 text-lg font-semibold;
+}
+
+.blog-prose p {
+  @apply opacity-90;
+}
+
+.blog-prose ul,
+.blog-prose ol {
+  @apply pl-6 space-y-2 opacity-90;
+}
+
+.blog-prose ul {
+  @apply list-disc;
+}
+
+.blog-prose ol {
+  @apply list-decimal;
+}
+
+.blog-prose li strong {
+  @apply text-secondary;
+}
+
+.blog-prose hr {
+  @apply my-10 border-black/10 dark:border-white/15;
+}
+
+.blog-prose blockquote {
+  @apply pl-4 my-8 italic border-l-4 opacity-90 border-secondary;
+}
+
+.blog-prose a {
+  @apply text-secondary underline-offset-2 hover:underline;
+}
+
+.blog-prose table {
+  @apply w-full text-sm;
+}
+
+.blog-prose th,
+.blog-prose td {
+  @apply px-3 py-2 text-left;
+}
