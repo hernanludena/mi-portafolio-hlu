@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <main>
       <TransitionPage />
-      <div className="flex min-h-[100vh] h-full">
+      <div className="flex min-h-0 w-full h-full overflow-x-hidden">
         <Introduction />
       </div>
     </main>

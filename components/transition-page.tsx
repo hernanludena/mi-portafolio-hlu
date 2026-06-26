@@ -1,6 +1,6 @@
 "use client"
 
-import { transitionVariantsPage } from "@/utils/motion-transitions";
+import { pageTransitionTiming, transitionVariantsPage } from "@/utils/motion-transitions";
 import { AnimatePresence, motion } from "framer-motion";
 
 const TransitionPage = () => {
@@ -13,7 +13,7 @@ const TransitionPage = () => {
                     initial="initial"
                     animate="animate"
                     exit="exit"
-                    transition={{ delay: 0.2, duration: 0.6, ease: "easeInOut" }}
+                    transition={pageTransitionTiming}
                 ></motion.div>
             </div>
         </AnimatePresence>

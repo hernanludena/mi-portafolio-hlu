@@ -12,7 +12,9 @@ const dictionary = {
         "nav.blog": "Blog",
         "nav.contact": "Contacto",
 
-        "hero.headline": "+15 años construyendo software financiero a escala",
+        "hero.headline.line1": "+15 años construyendo",
+        "hero.headline.line2": "software financiero",
+        "hero.headline.line3": "a escala",
         "hero.tagline": "Tech Lead · Full Stack Java · Scrum Master",
         "hero.bio": "He liderado equipos ágiles y diseñado arquitecturas de microservicios para banca y fintech, con foco en calidad, escalabilidad y buenas prácticas. Soy el puente entre negocio, desarrollo, infraestructura y operaciones.",
         "hero.resume": "Currículum",
@@ -62,7 +64,9 @@ const dictionary = {
         "nav.blog": "Blog",
         "nav.contact": "Contact",
 
-        "hero.headline": "15+ years building financial software at scale",
+        "hero.headline.line1": "15+ years building",
+        "hero.headline.line2": "financial software",
+        "hero.headline.line3": "at scale",
         "hero.tagline": "Tech Lead · Full Stack Java · Scrum Master",
         "hero.bio": "I've led agile teams and designed microservices architectures for banking and fintech, focused on quality, scalability and best practices. I'm the bridge between business, development, infrastructure and operations.",
         "hero.resume": "Resume",

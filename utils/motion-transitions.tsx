@@ -13,6 +13,12 @@ export const transitionVariantsPage = {
     },
 };
 
+export const pageTransitionTiming = {
+    delay: 0,
+    duration: 0.28,
+    ease: [0.4, 0, 0.2, 1] as const,
+};
+
 export const motionTransitionsAbout = {
     initial: {
         opacity: 0,
