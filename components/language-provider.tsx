@@ -40,6 +40,8 @@ const dictionary = {
         "projects.title2": "proyectos",
         "projects.featured": "Destacados",
         "projects.other": "Otros proyectos",
+        "projects.back": "Todos los proyectos",
+        "projects.view": "Ver proyecto",
 
         "blog.title1": "Mi",
         "blog.title2": "blog",
@@ -95,6 +97,8 @@ const dictionary = {
         "projects.title2": "projects",
         "projects.featured": "Featured",
         "projects.other": "Other projects",
+        "projects.back": "All projects",
+        "projects.view": "View project",
 
         "blog.title1": "My",
         "blog.title2": "blog",

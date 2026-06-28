@@ -25,7 +25,7 @@ const BlogArticle = ({ post }: BlogArticleProps) => {
             </Link>
 
             <header className="mt-6">
-                <h1 className="text-3xl font-bold leading-tight md:text-5xl">{localized.title}</h1>
+                <h1 className="text-2xl font-bold leading-tight md:text-4xl">{localized.title}</h1>
                 <div className="flex flex-wrap items-center gap-4 mt-4 text-sm opacity-70">
                     <span className="flex items-center gap-1.5">
                         <Calendar size={15} />
@@ -48,7 +48,7 @@ const BlogArticle = ({ post }: BlogArticleProps) => {
                 </div>
             </header>
 
-            <div className="mt-10 space-y-6 text-base leading-relaxed blog-prose md:text-lg">
+            <div className="mt-8 space-y-4 text-[0.9375rem] leading-[1.65] blog-prose md:text-base">
                 {localized.content}
             </div>
         </article>

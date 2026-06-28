@@ -1,6 +1,5 @@
-import Image from "next/image";
-
-const diagramClass = "w-full h-auto";
+import BlogClosingQuote from "@/components/blog-closing-quote";
+import BlogFigure from "@/components/blog-figure";
 
 export const npeContentEn = (
     <>
@@ -72,18 +71,11 @@ export const npeContentEn = (
             </li>
         </ol>
 
-        <figure className="my-8 overflow-hidden border rounded-2xl border-black/10 dark:border-white/10">
-            <Image
-                src="/blog/npe-collapse-diagram.png"
-                alt="System collapse diagram: producers, Kafka, poison message in batch, Spring Boot consumers in infinite retry loop and accumulated lag"
-                width={1400}
-                height={900}
-                className={diagramClass}
-            />
-            <figcaption className="px-4 py-3 text-sm text-center opacity-70 bg-black/[0.03] dark:bg-white/5">
-                System collapse diagram — original architecture and failure origin
-            </figcaption>
-        </figure>
+        <BlogFigure
+            src="/blog/npe-collapse-diagram.png"
+            alt="System collapse diagram: producers, Kafka, poison message in batch, Spring Boot consumers in infinite retry loop and accumulated lag"
+            caption="System collapse diagram — original architecture and failure origin"
+        />
 
         <hr />
 
@@ -118,18 +110,11 @@ export const npeContentEn = (
             </li>
         </ol>
 
-        <figure className="my-8 overflow-hidden border rounded-2xl border-black/10 dark:border-white/10">
-            <Image
-                src="/blog/npe-dlq-resilience.png"
-                alt="Resilience diagram: corrupt message isolated to DLQ while 499 valid messages flow to the database"
-                width={1400}
-                height={900}
-                className={diagramClass}
-            />
-            <figcaption className="px-4 py-3 text-sm text-center opacity-70 bg-black/[0.03] dark:bg-white/5">
-                Dead Letter Queue pattern — corrupt message isolation
-            </figcaption>
-        </figure>
+        <BlogFigure
+            src="/blog/npe-dlq-resilience.png"
+            alt="Resilience diagram: corrupt message isolated to DLQ while 499 valid messages flow to the database"
+            caption="Dead Letter Queue pattern — corrupt message isolation"
+        />
 
         <div className="overflow-x-auto my-6">
             <table className="w-full text-sm border-collapse">
@@ -167,35 +152,21 @@ export const npeContentEn = (
             nullable and non-nullable values, eliminating NPEs at compile time.
         </p>
 
-        <figure className="my-8 overflow-hidden border rounded-2xl border-black/10 dark:border-white/10">
-            <Image
-                src="/blog/npe-code-comparison.png"
-                alt="Code comparison: NPE-vulnerable Java vs safe approach with Optional and Kotlin"
-                width={1400}
-                height={900}
-                className={diagramClass}
-            />
-            <figcaption className="px-4 py-3 text-sm text-center opacity-70 bg-black/[0.03] dark:bg-white/5">
-                Traditional code vs safe approach with Optional and Kotlin
-            </figcaption>
-        </figure>
+        <BlogFigure
+            src="/blog/npe-code-comparison.png"
+            alt="Code comparison: NPE-vulnerable Java vs safe approach with Optional and Kotlin"
+            caption="Traditional code vs safe approach with Optional and Kotlin"
+        />
 
         <hr />
 
         <h2>4. Monitoring and trade-offs</h2>
 
-        <figure className="my-8 overflow-hidden border rounded-2xl border-black/10 dark:border-white/10">
-            <Image
-                src="/blog/npe-observability-dashboard.png"
-                alt="Observability dashboard: Kafka consumer lag, DLQ messages and PagerDuty alerts"
-                width={1400}
-                height={900}
-                className={diagramClass}
-            />
-            <figcaption className="px-4 py-3 text-sm text-center opacity-70 bg-black/[0.03] dark:bg-white/5">
-                Production observability dashboard — lag, DLQ and alert metrics
-            </figcaption>
-        </figure>
+        <BlogFigure
+            src="/blog/npe-observability-dashboard.png"
+            alt="Observability dashboard: Kafka consumer lag, DLQ messages and PagerDuty alerts"
+            caption="Production observability dashboard — lag, DLQ and alert metrics"
+        />
 
         <ul>
             <li>
@@ -219,10 +190,10 @@ export const npeContentEn = (
             <li>Resilience is designed: validation, DLQ, and observability are not optional.</li>
         </ul>
 
-        <blockquote>
+        <BlogClosingQuote>
             Anyone can write code that works locally. Diagnosing how a system fails at scale and
             redesigning it with clear trade-offs is what separates a senior profile from someone who
             only writes code.
-        </blockquote>
+        </BlogClosingQuote>
     </>
 );

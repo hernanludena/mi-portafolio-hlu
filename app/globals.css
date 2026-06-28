@@ -50,15 +50,15 @@ main {
 
 /* === Estilos de artículo de blog (estilo Bryan) === */
 .blog-prose h2 {
-  @apply mt-10 mb-4 text-2xl font-bold md:text-3xl;
+  @apply mt-8 mb-3 text-xl font-bold md:text-2xl;
 }
 
 .blog-prose h3 {
-  @apply mt-8 mb-3 text-xl font-semibold md:text-2xl;
+  @apply mt-6 mb-2 text-lg font-semibold md:text-xl;
 }
 
 .blog-prose h4 {
-  @apply mt-6 mb-2 text-lg font-semibold;
+  @apply mt-5 mb-2 text-base font-semibold md:text-lg;
 }
 
 .blog-prose p {
@@ -83,11 +83,27 @@ main {
 }
 
 .blog-prose hr {
-  @apply my-10 border-black/10 dark:border-white/15;
+  @apply my-8 border-black/10 dark:border-white/15;
 }
 
 .blog-prose blockquote {
-  @apply pl-4 my-8 italic border-l-4 opacity-90 border-secondary;
+  @apply pl-4 my-6 text-[0.9375rem] italic border-l-4 opacity-90 border-secondary md:text-base;
+}
+
+.blog-closing-quote {
+  @apply relative my-10 rounded-r-2xl border-l-[5px] border-secondary px-5 py-5 md:px-7 md:py-6;
+  @apply bg-secondary/[0.06] dark:bg-[#161B22]/90;
+  @apply shadow-sm shadow-secondary/10;
+}
+
+.blog-closing-quote p {
+  @apply m-0 text-[0.9375rem] font-medium italic leading-[1.65] opacity-100 md:text-base;
+  @apply text-[#0d1117] dark:text-[#f5f5f5];
+}
+
+.blog-closing-quote::after {
+  content: "";
+  @apply mt-6 block h-0.5 w-full rounded-full bg-secondary;
 }
 
 .blog-prose a {
@@ -95,15 +111,15 @@ main {
 }
 
 .blog-prose table {
-  @apply w-full text-sm;
+  @apply w-full text-[0.8125rem] md:text-sm;
 }
 
 .blog-prose code {
-  @apply px-1.5 py-0.5 text-sm rounded font-mono bg-black/[0.06] dark:bg-white/10 text-secondary;
+  @apply px-1 py-0.5 text-[0.8125rem] rounded font-mono bg-black/[0.06] dark:bg-white/10 text-secondary md:text-sm;
 }
 
 .blog-prose pre {
-  @apply my-4;
+  @apply my-3 text-[0.8125rem] md:text-sm;
 }
 
 .blog-prose pre code {
@@ -112,4 +128,16 @@ main {
 
 .blog-prose figure img {
   @apply bg-white/90 dark:bg-[#161B22];
+}
+
+.blog-figure {
+  @apply mx-auto my-6 w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl;
+}
+
+.blog-figure__img {
+  @apply w-full h-auto rounded-xl border border-black/10 dark:border-white/10;
+}
+
+.blog-figure__caption {
+  @apply px-2 py-2 mt-2 text-xs text-center opacity-70 md:text-sm;
 }
