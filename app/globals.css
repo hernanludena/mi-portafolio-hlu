@@ -98,7 +98,18 @@ main {
   @apply w-full text-sm;
 }
 
-.blog-prose th,
-.blog-prose td {
-  @apply px-3 py-2 text-left;
+.blog-prose code {
+  @apply px-1.5 py-0.5 text-sm rounded font-mono bg-black/[0.06] dark:bg-white/10 text-secondary;
+}
+
+.blog-prose pre {
+  @apply my-4;
+}
+
+.blog-prose pre code {
+  @apply p-0 bg-transparent text-inherit;
+}
+
+.blog-prose figure img {
+  @apply bg-white/90 dark:bg-[#161B22];
 }

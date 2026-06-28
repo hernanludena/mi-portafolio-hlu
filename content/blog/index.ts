@@ -1,20 +1,33 @@
-import { llmopsPost } from "./llmops";
-import type { BlogPost } from "@/types/blog";
+import { npePostDefinition } from "./npe";
+import type { BlogLang, BlogPost, BlogPostDefinition } from "@/types/blog";
+import { resolveBlogPost } from "@/types/blog";
 
-const blogPosts: Record<string, BlogPost> = {
-    [llmopsPost.slug]: llmopsPost,
-};
+const blogPostDefinitions: BlogPostDefinition[] = [npePostDefinition];
 
-export function getBlogPost(slug: string): BlogPost | undefined {
-    return blogPosts[slug];
+const blogPostsBySlug = Object.fromEntries(
+    blogPostDefinitions.map((def) => [def.slug, def])
+) as Record<string, BlogPostDefinition>;
+
+export function getBlogPostDefinition(slug: string): BlogPostDefinition | undefined {
+    return blogPostsBySlug[slug];
 }
 
-export function getAllBlogPosts(): BlogPost[] {
-    return Object.values(blogPosts);
+export function getBlogPost(slug: string, lang: BlogLang = "es"): BlogPost | undefined {
+    const def = getBlogPostDefinition(slug);
+    if (!def) return undefined;
+    return resolveBlogPost(def, lang);
+}
+
+export function getAllBlogPostDefinitions(): BlogPostDefinition[] {
+    return blogPostDefinitions;
+}
+
+export function getAllBlogPosts(lang: BlogLang = "es"): BlogPost[] {
+    return blogPostDefinitions.map((def) => resolveBlogPost(def, lang));
 }
 
 export function getAllBlogSlugs(): string[] {
-    return Object.keys(blogPosts);
+    return blogPostDefinitions.map((def) => def.slug);
 }
 
-export { llmopsPost };
+export { npePostDefinition };

@@ -2,15 +2,17 @@
 
 import Link from "next/link";
 import { ArrowLeft, Calendar, Clock } from "lucide-react";
-import type { BlogPost } from "@/types/blog";
+import type { BlogPostDefinition } from "@/types/blog";
+import { resolveBlogPost } from "@/types/blog";
 import { useLanguage } from "@/components/language-provider";
 
 interface BlogArticleProps {
-    post: BlogPost;
+    post: BlogPostDefinition;
 }
 
 const BlogArticle = ({ post }: BlogArticleProps) => {
-    const { t } = useLanguage();
+    const { lang, t } = useLanguage();
+    const localized = resolveBlogPost(post, lang);
 
     return (
         <article>
@@ -23,19 +25,19 @@ const BlogArticle = ({ post }: BlogArticleProps) => {
             </Link>
 
             <header className="mt-6">
-                <h1 className="text-3xl font-bold leading-tight md:text-5xl">{post.title}</h1>
+                <h1 className="text-3xl font-bold leading-tight md:text-5xl">{localized.title}</h1>
                 <div className="flex flex-wrap items-center gap-4 mt-4 text-sm opacity-70">
                     <span className="flex items-center gap-1.5">
                         <Calendar size={15} />
-                        {t("blog.updated")} {post.updatedAt}
+                        {t("blog.updated")} {localized.updatedAt}
                     </span>
                     <span className="flex items-center gap-1.5">
                         <Clock size={15} />
-                        {post.readTime} {t("blog.read")}
+                        {localized.readTime} {t("blog.read")}
                     </span>
                 </div>
                 <div className="flex flex-wrap gap-2 mt-4">
-                    {post.tags.map((tag) => (
+                    {localized.tags.map((tag) => (
                         <span
                             key={tag}
                             className="px-2.5 py-0.5 text-xs rounded-full bg-secondary/15 text-secondary"
@@ -47,7 +49,7 @@ const BlogArticle = ({ post }: BlogArticleProps) => {
             </header>
 
             <div className="mt-10 space-y-6 text-base leading-relaxed blog-prose md:text-lg">
-                {post.content}
+                {localized.content}
             </div>
         </article>
     );
