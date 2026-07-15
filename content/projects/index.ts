@@ -1,8 +1,14 @@
+import { patientManagementProject } from "./patient-management-mono";
+import { springTemporalProject } from "./spring-mono-temporal";
 import { springRedisProject } from "./spring-redis";
 import type { ProjectDetailDefinition, ProjectLang } from "@/types/project";
 import { resolveProjectCard } from "@/types/project";
 
-const projectDefinitions: ProjectDetailDefinition[] = [springRedisProject];
+const projectDefinitions: ProjectDetailDefinition[] = [
+    patientManagementProject,
+    springTemporalProject,
+    springRedisProject,
+];
 
 const projectsBySlug = Object.fromEntries(
     projectDefinitions.map((def) => [def.slug, def])
@@ -24,4 +30,4 @@ export function getAllProjectCards(lang: ProjectLang = "es") {
     return projectDefinitions.map((def) => resolveProjectCard(def, lang));
 }
 
-export { springRedisProject };
+export { patientManagementProject, springTemporalProject, springRedisProject };

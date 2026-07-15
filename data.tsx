@@ -35,7 +35,9 @@ export const itemsNavbar = [
     { id: 2, key: "nav.about", link: "/about" },
     { id: 3, key: "nav.projects", link: "/projects" },
     { id: 4, key: "nav.blog", link: "/blog" },
-    { id: 5, key: "nav.contact", link: "/contact" },
+    { id: 5, key: "nav.games", link: "/juegos" },
+    { id: 6, key: "nav.hackerrank", link: "/hackerrank" },
+    { id: 7, key: "nav.contact", link: "/contact" },
 ] as const;
 
 // Bloque de stats (About) — reusa react-countup
