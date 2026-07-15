@@ -1,0 +1,44 @@
+export const stringDecryptionReversalDetailEs = (
+    <>
+        <p>Desencriptar mensaje: cada letra seguida de dígito se repite N veces. Luego invertir orden de palabras.</p>
+        <h2>Enunciado</h2>
+        <p>Formato por palabra: <code>a3</code> → <code>aaa</code>. Al final, invertir lista de palabras.</p>
+        <h2>Ejemplo</h2>
+        <pre className="p-4 overflow-x-auto text-sm rounded-xl bg-black/[0.04] dark:bg-white/[0.06] font-mono">
+            {`Input:  "a3b4q2i abcd2 abc"
+Output: "abc abcdccccc aaaaabbbbbbqqii"`}
+        </pre>
+        <h2>Enfoque</h2>
+        <ol><li>Split por espacios.</li><li>Por palabra: si sig char es dígito → repetir, saltar dígito.</li><li><code>Collections.reverse(words)</code></li><li><code>String.join</code></li></ol>
+        <h2>Complejidad</h2>
+        <ul>
+            <li><strong>Tiempo:</strong> <code>O(n)</code></li>
+            <li><strong>Espacio:</strong> <code>O(n)</code></li>
+        </ul>
+        <h2>Solución en Java</h2>
+        <pre className="p-4 overflow-x-auto text-sm rounded-xl bg-black/[0.04] dark:bg-white/[0.06] font-mono">
+            <code>{`public static String decryptMessage(String encryptedMessage) {
+    String[] words = encryptedMessage.split(" ");
+    List<String> decoded = new ArrayList<>();
+
+    for (String word : words) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < word.length(); i++) {
+            char ch = word.charAt(i);
+            if (i + 1 < word.length() && Character.isDigit(word.charAt(i + 1))) {
+                int freq = Character.getNumericValue(word.charAt(i + 1));
+                for (int j = 0; j < freq; j++) sb.append(ch);
+                i++;
+            } else {
+                sb.append(ch);
+            }
+        }
+        decoded.add(sb.toString());
+    }
+    Collections.reverse(decoded);
+    return String.join(" ", decoded);
+}`}</code>
+        </pre>
+        
+    </>
+);

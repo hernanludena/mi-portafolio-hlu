@@ -10,7 +10,6 @@ export interface HackerRankCardLocale {
 
 export interface HackerRankDefinition {
     slug: string;
-    image: string;
     difficulty: HackerRankDifficulty;
     tags: string[];
     urlProblem: string;
@@ -30,7 +29,6 @@ export interface HackerRankDetailDefinition extends HackerRankDefinition {
 
 export interface HackerRankCard extends HackerRankCardLocale {
     slug: string;
-    image: string;
     difficulty: HackerRankDifficulty;
     tags: string[];
     urlProblem: string;
@@ -41,7 +39,6 @@ export function resolveHackerRankCard(def: HackerRankDefinition, lang: HackerRan
     const locale = def.locales[lang];
     return {
         slug: def.slug,
-        image: def.image,
         difficulty: def.difficulty,
         tags: def.tags,
         urlProblem: def.urlProblem,

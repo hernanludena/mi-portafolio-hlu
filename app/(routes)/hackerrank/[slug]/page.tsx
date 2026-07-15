@@ -24,7 +24,6 @@ export async function generateMetadata({ params }: HackerRankChallengePageProps)
         openGraph: {
             title: es.title,
             description: es.description,
-            images: [{ url: challenge.image, alt: es.title }],
         },
     };
 }

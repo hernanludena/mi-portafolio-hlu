@@ -6,7 +6,6 @@ import TransitionPage from "@/components/transition-page";
 import { getAllHackerRankCards } from "@/content/hackerrank";
 import type { HackerRankDifficulty } from "@/types/hackerrank";
 import { Code2, ExternalLink, Github } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import { useLanguage } from "@/components/language-provider";
 
@@ -36,23 +35,14 @@ const HackerRankPage = () => {
                         <p className="text-sm opacity-60">{t("hackerrank.empty")}</p>
                     </div>
                 ) : (
-                    <div className="grid gap-6 mt-10 md:grid-cols-2 lg:grid-cols-3">
+                    <div className="grid gap-4 mt-10 md:grid-cols-2 lg:grid-cols-3">
                         {challenges.map((c) => (
                             <div
                                 key={c.slug}
                                 className="flex flex-col p-4 transition-all border shadow-sm rounded-2xl border-black/10 bg-black/[0.03] dark:border-white/15 dark:bg-white/5 hover:border-secondary hover:-translate-y-1"
                             >
                                 <Link href={`/hackerrank/${c.slug}`} className="flex flex-col flex-1">
-                                    <div className="overflow-hidden rounded-xl border border-black/10 dark:border-white/10">
-                                        <Image
-                                            src={c.image}
-                                            alt={c.title}
-                                            width={400}
-                                            height={200}
-                                            className="object-cover w-full h-36"
-                                        />
-                                    </div>
-                                    <div className="flex items-center gap-2 mt-4">
+                                    <div className="flex items-center gap-2">
                                         <span className={`px-2 py-0.5 text-xs font-medium rounded-full ${difficultyClass[c.difficulty]}`}>
                                             {c.difficulty}
                                         </span>
