@@ -1,0 +1,21 @@
+<svg width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="paint0_linear" x1="8" y1="48" x2="88" y2="48" gradientUnits="userSpaceOnUse">
+<stop stop-color="#4F46E5"/>
+<stop offset="1" stop-color="#06B6D4"/>
+</linearGradient>
+<mask id="mask0">
+<rect width="96" height="96" fill="black"/>
+<circle cx="38" cy="48" r="19" fill="white"/>
+<circle cx="48" cy="48" r="16" fill="black"/>
+</mask>
+<mask id="mask1">
+<rect width="96" height="96" fill="black"/>
+<circle cx="59" cy="48" r="12" fill="white"/>
+<circle cx="65.5" cy="48" r="10" fill="black"/>
+</mask>
+</defs>
+<circle cx="48" cy="48" r="40" fill="url(#paint0_linear)"/>
+<rect width="96" height="96" fill="white" mask="url(#mask0)"/>
+<rect width="96" height="96" fill="white" mask="url(#mask1)"/>
+</svg>

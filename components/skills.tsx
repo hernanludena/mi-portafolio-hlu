@@ -3,13 +3,20 @@
 import { skillsData } from "@/data";
 import { useLanguage } from "./language-provider";
 
-const Skills = () => {
+type SkillsProps = {
+    showTitle?: boolean;
+    className?: string;
+};
+
+const Skills = ({ showTitle = true, className = "" }: SkillsProps) => {
     const { t } = useLanguage();
     return (
-        <div className="w-full max-w-3xl mx-auto my-12">
-            <h2 className="mb-8 text-2xl font-bold md:text-3xl">
-                {t("about.skills1")} <span className="text-secondary">{t("about.skills2")}</span>
-            </h2>
+        <div className={`w-full max-w-3xl mx-auto my-12 ${className}`.trim()}>
+            {showTitle && (
+                <h2 className="mb-8 text-2xl font-bold md:text-3xl">
+                    {t("about.skills1")} <span className="text-secondary">{t("about.skills2")}</span>
+                </h2>
+            )}
 
             <div className="flex flex-col gap-6">
                 {skillsData.map(({ id, category, items }) => (

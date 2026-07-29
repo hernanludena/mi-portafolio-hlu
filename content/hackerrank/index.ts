@@ -94,7 +94,7 @@ export function getAllHackerRankSlugs(): string[] {
     return hackerrankDefinitions.map((def) => def.slug);
 }
 
-export function getAllHackerRankCards(lang: HackerRankLang = "es") {
+export function getAllHackerRankCards(lang: HackerRankLang = "en") {
     return hackerrankDefinitions.map((def) => resolveHackerRankCard(def, lang));
 }
 

@@ -2,8 +2,6 @@
 
 import ContainerPage from "@/components/container-page";
 import CounterServices from "@/components/counter-services";
-import Skills from "@/components/skills";
-import TimeLine from "@/components/time-line";
 import TransitionPage from "@/components/transition-page";
 import { personalData, certifications, education, awards, languagesData } from "@/data";
 import { useLanguage } from "@/components/language-provider";
@@ -12,6 +10,7 @@ import Image from "next/image";
 
 const AboutPage = () => {
     const { t } = useLanguage();
+
     return (
         <>
             <TransitionPage />
@@ -39,8 +38,6 @@ const AboutPage = () => {
                 </div>
 
                 <CounterServices />
-
-                <Skills />
 
                 {/* Educación · Certificaciones · Reconocimientos · Idiomas */}
                 <div className="grid gap-10 mt-14 md:grid-cols-2">
@@ -111,10 +108,6 @@ const AboutPage = () => {
                     </section>
                 </div>
 
-                <h2 className="mt-14 mb-2 text-2xl font-bold md:text-3xl">
-                    {t("about.work1")} <span className="text-secondary">{t("about.work2")}</span>
-                </h2>
-                <TimeLine />
             </ContainerPage>
         </>
     );

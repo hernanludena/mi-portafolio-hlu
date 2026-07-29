@@ -19,6 +19,6 @@ export function getAllGameSlugs(): string[] {
     return gameDefinitions.map((def) => def.slug);
 }
 
-export function getAllGameCards(lang: GameLang = "es") {
+export function getAllGameCards(lang: GameLang = "en") {
     return gameDefinitions.map((def) => resolveGameCard(def, lang));
 }

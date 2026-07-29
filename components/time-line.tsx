@@ -1,29 +1,106 @@
 import { dataAboutPage } from "@/data";
+import { CalendarRange, MapPin } from "lucide-react";
+import Image from "next/image";
+import { useLanguage } from "./language-provider";
 
-const TimeLine = () => {
+type TimeLineProps = {
+    compact?: boolean;
+};
+
+const TimeLine = ({ compact = false }: TimeLineProps) => {
+    const { lang } = useLanguage();
+
     return (
-        <div className="flex flex-col justify-center divide-y divide-slate-200">
-            <div className="w-full max-w-3xl mx-auto md:pb-40 md:pt-20">
-                <div className="-my-6">
-                    {dataAboutPage.map((data) => (
-                        <div key={data.id} className="relative py-6 pl-8 sm:pl-32 group">
-                            <h3 className="mb-1 text-2xl font-bold sm:mb-0">{data.title}</h3>
-                            <div className="flex flex-col sm:flex-row items-start mb-1 
-                                        group-last:before:hidden before:absolute 
-                                        before:left-2 sm:before:left-0 before:h-full
-                                        before:px-px before:bg-slate-300 sm:before:ml-[6.5rem] 
-                                        before:self-start before:-translate-x-1/2 
-                                        before:translate-y-3 after:absolute after:left-2 
-                                        sm:after:left-0 after:w-2 after:h-2 after:bg-indigo-600 
-                                        after:border-4 after:box-content after:border-slate-50 
-                                        after:rounded-full sm:after:ml-[6.5rem] after:-translate-x-1/2 
-                                        after:translate-y-1.5">
-                                <time className="sm:absolute left-0 translate-y-0.5 inline-flex items-center justify-center text-xs font-semibold uppercase w-20 h-6 mb-3 sm:mb-0 text-emerald-600 bg-emerald-100 rounded-full">{data.date}</time>
-                                <div className="text-xl font-bold text-gray-400">{data.subtitle}</div>
-                            </div>
-                            <div className="text-slate-400">{data.description}</div>
-                        </div>
-                    ))}
+        <div className="flex flex-col justify-center">
+            <div className={`w-full mx-auto ${compact ? "max-w-none py-2" : "max-w-5xl md:pt-8"}`}>
+                <div className="space-y-6">
+                    {dataAboutPage.map((data) => {
+                        const title = lang === "en" ? data.titleEn ?? data.title : data.title;
+                        const company = lang === "en" ? data.companyEn ?? data.company : data.company;
+                        const period = lang === "en" ? data.periodEn ?? data.period : data.period;
+                        const workMode = lang === "en" ? data.workModeEn ?? data.workMode : data.workMode;
+                        const summary = lang === "en" ? data.summaryEn ?? data.summary : data.summary;
+                        const highlights = lang === "en" ? data.highlightsEn ?? data.highlights : data.highlights;
+
+                        return (
+                            <article
+                                key={data.id}
+                                className="p-6 transition-all border shadow-sm rounded-3xl border-black/10 bg-black/[0.03] dark:border-white/15 dark:bg-white/5 md:p-8 hover:border-secondary/50"
+                            >
+                                <div className="flex flex-col gap-5 md:flex-row md:items-start md:justify-between">
+                                    <div className="flex flex-col gap-4 sm:flex-row sm:items-start">
+                                        <div
+                                            className={`flex items-center justify-center shrink-0 ${data.logoVariant === "icon"
+                                                ? "w-20 h-20 rounded-full border border-black/10 bg-white p-2 shadow-sm dark:border-white/10 dark:bg-white"
+                                                : "w-28 h-16"
+                                                }`}
+                                        >
+                                            <Image
+                                                src={data.logo}
+                                                alt={data.logoAlt}
+                                                width={data.logoVariant === "icon" ? 80 : 120}
+                                                height={data.logoVariant === "icon" ? 80 : 48}
+                                                className={`w-auto h-auto object-contain ${data.logoVariant === "icon"
+                                                    ? data.logoFit === "cover"
+                                                        ? "w-14 h-14 rounded-full object-cover"
+                                                        : "max-w-14 max-h-14 object-contain"
+                                                    : "max-w-[120px] max-h-12"
+                                                    }`}
+                                            />
+                                        </div>
+
+                                        <div>
+                                            <h3 className="text-xl font-bold md:text-2xl">{title}</h3>
+                                            <p className="mt-1 text-base font-semibold text-secondary md:text-lg">
+                                                {company}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="pt-5 mt-6 border-t border-black/10 dark:border-white/10">
+                                    <div className="flex flex-wrap gap-3">
+                                        <span className="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold uppercase border rounded-full tracking-[0.28em] border-black/15 bg-white/70 dark:border-white/15 dark:bg-white/5 md:text-sm">
+                                            <CalendarRange size={15} className="text-secondary" />
+                                            {period}
+                                        </span>
+                                        <span className="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold uppercase border rounded-full tracking-[0.28em] border-black/15 bg-white/70 dark:border-white/15 dark:bg-white/5 md:text-sm">
+                                            <MapPin size={15} className="text-secondary" />
+                                            {workMode}
+                                        </span>
+                                        <span className="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold border rounded-full border-black/15 bg-white/70 dark:border-white/15 dark:bg-white/5 md:text-sm">
+                                            <MapPin size={15} className="text-secondary" />
+                                            {data.location}
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <p className="mt-5 text-sm leading-7 opacity-85 md:text-base">
+                                    {summary}
+                                </p>
+
+                                <ul className="mt-5 space-y-3 text-sm leading-7 opacity-85 md:text-base">
+                                    {highlights.map((highlight) => (
+                                        <li key={highlight} className="flex gap-3">
+                                            <span className="w-2 h-2 mt-2 rounded-full shrink-0 bg-secondary" />
+                                            <span>{highlight}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+
+                                <div className="flex flex-wrap gap-2 mt-5">
+                                    {data.tech.map((item) => (
+                                        <span
+                                            key={item}
+                                            className="px-3 py-1 text-xs border rounded-full border-black/15 bg-white/70 dark:border-white/15 dark:bg-white/5 md:text-sm"
+                                        >
+                                            {item}
+                                        </span>
+                                    ))}
+                                </div>
+                            </article>
+                        );
+                    })}
                 </div>
             </div>
         </div>

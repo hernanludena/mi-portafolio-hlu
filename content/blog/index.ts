@@ -13,7 +13,7 @@ export function getBlogPostDefinition(slug: string): BlogPostDefinition | undefi
     return blogPostsBySlug[slug];
 }
 
-export function getBlogPost(slug: string, lang: BlogLang = "es"): BlogPost | undefined {
+export function getBlogPost(slug: string, lang: BlogLang = "en"): BlogPost | undefined {
     const def = getBlogPostDefinition(slug);
     if (!def) return undefined;
     return resolveBlogPost(def, lang);
@@ -23,7 +23,7 @@ export function getAllBlogPostDefinitions(): BlogPostDefinition[] {
     return blogPostDefinitions;
 }
 
-export function getAllBlogPosts(lang: BlogLang = "es"): BlogPost[] {
+export function getAllBlogPosts(lang: BlogLang = "en"): BlogPost[] {
     return blogPostDefinitions.map((def) => resolveBlogPost(def, lang));
 }
 

@@ -26,7 +26,7 @@ export function getAllProjectSlugs(): string[] {
     return projectDefinitions.map((def) => def.slug);
 }
 
-export function getAllProjectCards(lang: ProjectLang = "es") {
+export function getAllProjectCards(lang: ProjectLang = "en") {
     return projectDefinitions.map((def) => resolveProjectCard(def, lang));
 }
 
