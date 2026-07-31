@@ -1,4 +1,5 @@
 import BlogClosingQuote from "@/components/blog-closing-quote";
+import BlogFigure from "@/components/blog-figure";
 
 export const biometricAuthContentEn = (
     <>
@@ -176,6 +177,12 @@ export const biometricAuthContentEn = (
 9. Backend issues rotated biometric token
 10. Backend creates bank session`}
         </pre>
+
+        <BlogFigure
+            src="/blog/biometric-auth-flow.png"
+            alt="Before/After diagram: replay-vulnerable biometric flow vs replay-resistant flow with one-time challenge, atomic consumption, and token rotation"
+            caption="Before vs After — replay-vulnerable architecture and the secure flow with nonce, atomic consumption, and token rotation"
+        />
 
         <div className="overflow-x-auto my-6">
             <table className="w-full text-sm border-collapse">

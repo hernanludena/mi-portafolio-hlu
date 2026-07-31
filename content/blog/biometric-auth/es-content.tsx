@@ -1,4 +1,5 @@
 import BlogClosingQuote from "@/components/blog-closing-quote";
+import BlogFigure from "@/components/blog-figure";
 
 export const biometricAuthContentEs = (
     <>
@@ -175,6 +176,12 @@ export const biometricAuthContentEs = (
 9. El backend emite un token biométrico rotado
 10. El backend crea la sesión bancaria`}
         </pre>
+
+        <BlogFigure
+            src="/blog/biometric-auth-flow.png"
+            alt="Diagrama Before/After: flujo biométrico vulnerable a replay vs flujo resistente con challenge de un solo uso, consumo atómico y rotación de token"
+            caption="Before vs After — arquitectura vulnerable a replay y flujo resistente con nonce, consumo atómico y rotación de token"
+        />
 
         <div className="overflow-x-auto my-6">
             <table className="w-full text-sm border-collapse">
