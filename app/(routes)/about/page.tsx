@@ -3,13 +3,13 @@
 import ContainerPage from "@/components/container-page";
 import CounterServices from "@/components/counter-services";
 import TransitionPage from "@/components/transition-page";
-import { personalData, certifications, education, awards, languagesData } from "@/data";
+import { personalData, certifications, education, languagesData } from "@/data";
 import { useLanguage } from "@/components/language-provider";
-import { Award, GraduationCap, BadgeCheck, Languages } from "lucide-react";
+import { GraduationCap, BadgeCheck, Languages, CalendarRange } from "lucide-react";
 import Image from "next/image";
 
 const AboutPage = () => {
-    const { t } = useLanguage();
+    const { t, lang } = useLanguage();
 
     return (
         <>
@@ -27,64 +27,137 @@ const AboutPage = () => {
                         alt={personalData.name}
                         className="w-[220px] h-auto rounded-2xl object-cover border-4 border-secondary/40 shrink-0"
                     />
-                    <div>
-                        <p className="text-lg leading-relaxed">
-                            {t("about.p1", { name: personalData.name })}
+                    <div className="relative pl-2">
+                        <span
+                            aria-hidden
+                            className="font-tag select-none relative block -ml-4 mb-1 text-lg leading-none font-bold text-black/30 dark:text-white/50"
+                        >
+                            &lt;p&gt;
+                        </span>
+                        <p className="text-base font-medium leading-relaxed md:text-lg">
+                            {t("about.p1", { name: personalData.firstName })}
                         </p>
-                        <p className="mt-4 text-lg leading-relaxed">
+                        <p className="mt-4 text-base font-medium leading-relaxed md:text-lg">
                             {t("about.p2")}
                         </p>
+                        <p className="mt-4 text-base font-medium leading-relaxed md:text-lg">
+                            {t("about.p3")}
+                        </p>
+                        <span
+                            aria-hidden
+                            className="font-tag select-none relative block -ml-4 mt-2 text-lg leading-none font-bold text-black/30 dark:text-white/50"
+                        >
+                            &lt;/p&gt;
+                        </span>
                     </div>
                 </div>
 
                 <CounterServices />
 
-                {/* Educación · Certificaciones · Reconocimientos · Idiomas */}
-                <div className="grid gap-10 mt-14 md:grid-cols-2">
+                <div className="flex flex-col gap-12 mt-14">
                     {/* Educación */}
                     <section>
                         <h2 className="flex items-center gap-2 mb-5 text-2xl font-bold md:text-3xl">
                             <GraduationCap className="text-secondary" size={26} /> {t("about.education")}
                         </h2>
-                        <ul className="space-y-4">
-                            {education.map((e) => (
-                                <li key={e.id} className="p-4 border rounded-xl border-black/10 bg-black/[0.03] dark:border-white/15 dark:bg-white/5">
-                                    <p className="font-semibold">{e.degree}</p>
-                                    <p className="text-sm opacity-80">{e.school}</p>
-                                    <p className="mt-1 text-xs opacity-60">{e.field} · {e.period}</p>
-                                </li>
-                            ))}
-                        </ul>
+                        <div className="space-y-6">
+                            {education.map((e) => {
+                                const degree = lang === "en" ? e.degreeEn ?? e.degree : e.degree;
+                                const field = lang === "en" ? e.fieldEn ?? e.field : e.field;
+
+                                return (
+                                    <article
+                                        key={e.id}
+                                        className="p-6 transition-all border shadow-sm rounded-3xl border-black/10 bg-black/[0.03] dark:border-white/15 dark:bg-white/5 md:p-8 hover:border-secondary/50"
+                                    >
+                                        <div className="flex flex-col gap-4 sm:flex-row sm:items-start">
+                                            <div className="flex items-center justify-center shrink-0 w-20 h-20 rounded-full border border-black/10 bg-white p-2 shadow-sm dark:border-white/10 dark:bg-white">
+                                                <Image
+                                                    src={e.logo}
+                                                    alt={e.logoAlt}
+                                                    width={80}
+                                                    height={80}
+                                                    className={
+                                                        e.logoFit === "cover"
+                                                            ? "w-14 h-14 rounded-full object-cover"
+                                                            : "max-w-14 max-h-14 w-auto h-auto object-contain"
+                                                    }
+                                                />
+                                            </div>
+                                            <div>
+                                                <h3 className="text-xl font-bold md:text-2xl">{degree}</h3>
+                                                <p className="mt-1 text-base font-semibold text-secondary md:text-lg">
+                                                    {e.school}
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div className="pt-5 mt-6 border-t border-black/10 dark:border-white/10">
+                                            <div className="flex flex-wrap gap-3">
+                                                <span className="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold uppercase border rounded-full tracking-[0.28em] border-black/15 bg-white/70 dark:border-white/15 dark:bg-white/5 md:text-sm">
+                                                    <CalendarRange size={15} className="text-secondary" />
+                                                    {e.period}
+                                                </span>
+                                                <span className="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold border rounded-full border-black/15 bg-white/70 dark:border-white/15 dark:bg-white/5 md:text-sm">
+                                                    {field}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </article>
+                                );
+                            })}
+                        </div>
                     </section>
 
-                    {/* Certificaciones */}
+                    {/* Licencias y certificaciones */}
                     <section>
                         <h2 className="flex items-center gap-2 mb-5 text-2xl font-bold md:text-3xl">
                             <BadgeCheck className="text-secondary" size={26} /> {t("about.certifications")}
                         </h2>
-                        <ul className="space-y-3">
-                            {certifications.map((c) => (
-                                <li key={c.id} className="flex flex-col p-3 border rounded-xl border-black/10 bg-black/[0.03] dark:border-white/15 dark:bg-white/5">
-                                    <span className="text-sm font-medium">{c.name}</span>
-                                    <span className="text-xs opacity-60">{c.issuer}</span>
-                                </li>
-                            ))}
-                        </ul>
-                    </section>
+                        <div className="space-y-6">
+                            {certifications.map((c) => {
+                                const name = lang === "en" ? c.nameEn ?? c.name : c.name;
+                                const field = lang === "en" ? c.fieldEn ?? c.field : c.field;
+                                const period = lang === "en" ? c.periodEn ?? c.period : c.period;
 
-                    {/* Reconocimientos */}
-                    <section>
-                        <h2 className="flex items-center gap-2 mb-5 text-2xl font-bold md:text-3xl">
-                            <Award className="text-secondary" size={26} /> {t("about.awards")}
-                        </h2>
-                        <ul className="space-y-3">
-                            {awards.map((a) => (
-                                <li key={a.id} className="flex flex-col p-3 border rounded-xl border-black/10 bg-black/[0.03] dark:border-white/15 dark:bg-white/5">
-                                    <span className="text-sm font-medium">{a.name}</span>
-                                    <span className="text-xs opacity-60">{a.issuer}</span>
-                                </li>
-                            ))}
-                        </ul>
+                                return (
+                                    <article
+                                        key={c.id}
+                                        className="p-6 transition-all border shadow-sm rounded-3xl border-black/10 bg-black/[0.03] dark:border-white/15 dark:bg-white/5 md:p-8 hover:border-secondary/50"
+                                    >
+                                        <div className="flex flex-col gap-4 sm:flex-row sm:items-start">
+                                            <div className="flex items-center justify-center shrink-0 w-20 h-20 rounded-full border border-black/10 bg-white p-2 shadow-sm dark:border-white/10 dark:bg-white">
+                                                <Image
+                                                    src={c.logo}
+                                                    alt={c.logoAlt}
+                                                    width={80}
+                                                    height={80}
+                                                    className="max-w-14 max-h-14 w-auto h-auto object-contain"
+                                                />
+                                            </div>
+                                            <div>
+                                                <h3 className="text-xl font-bold md:text-2xl">{name}</h3>
+                                                <p className="mt-1 text-base font-semibold text-secondary md:text-lg">
+                                                    {c.issuer}
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div className="pt-5 mt-6 border-t border-black/10 dark:border-white/10">
+                                            <div className="flex flex-wrap gap-3">
+                                                <span className="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold uppercase border rounded-full tracking-[0.28em] border-black/15 bg-white/70 dark:border-white/15 dark:bg-white/5 md:text-sm">
+                                                    <CalendarRange size={15} className="text-secondary" />
+                                                    {period}
+                                                </span>
+                                                <span className="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold border rounded-full border-black/15 bg-white/70 dark:border-white/15 dark:bg-white/5 md:text-sm">
+                                                    {field}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </article>
+                                );
+                            })}
+                        </div>
                     </section>
 
                     {/* Idiomas */}

@@ -14,9 +14,9 @@ export const transitionVariantsPage = {
 };
 
 export const pageTransitionTiming = {
-    delay: 0,
-    duration: 0.28,
-    ease: [0.4, 0, 0.2, 1] as const,
+    delay: 0.1,
+    duration: 0.6,
+    ease: "easeInOut" as const,
 };
 
 export const motionTransitionsAbout = {

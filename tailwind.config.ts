@@ -26,6 +26,7 @@ const config: Config = {
         // Igual que bryan-aguilar.com: Geist Sans de base, Geist Mono para el código
         sans: ["var(--font-geist-sans)", "ui-sans-serif", "system-ui", "sans-serif"],
         mono: ["var(--font-geist-mono)", "ui-monospace", "monospace"],
+        tag: ["var(--font-la-belle-aurore)", "cursive"],
       },
     },
   },

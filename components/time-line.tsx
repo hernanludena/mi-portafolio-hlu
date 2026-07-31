@@ -8,7 +8,7 @@ type TimeLineProps = {
 };
 
 const TimeLine = ({ compact = false }: TimeLineProps) => {
-    const { lang } = useLanguage();
+    const { lang, t } = useLanguage();
 
     return (
         <div className="flex flex-col justify-center">
@@ -88,15 +88,20 @@ const TimeLine = ({ compact = false }: TimeLineProps) => {
                                     ))}
                                 </ul>
 
-                                <div className="flex flex-wrap gap-2 mt-5">
-                                    {data.tech.map((item) => (
-                                        <span
-                                            key={item}
-                                            className="px-3 py-1 text-xs border rounded-full border-black/15 bg-white/70 dark:border-white/15 dark:bg-white/5 md:text-sm"
-                                        >
-                                            {item}
-                                        </span>
-                                    ))}
+                                <div className="pt-5 mt-6 border-t border-black/10 dark:border-white/10">
+                                    <p className="mb-3 text-xs font-bold uppercase tracking-[0.22em] text-secondary md:text-sm">
+                                        {t("experience.techStack")}
+                                    </p>
+                                    <div className="flex flex-wrap gap-2">
+                                        {data.tech.map((item) => (
+                                            <span
+                                                key={item}
+                                                className="px-3.5 py-1.5 text-xs font-bold tracking-wide border rounded-full border-secondary/45 bg-secondary/10 text-secondary shadow-[0_0_0_1px_rgba(56,189,248,0.08)] dark:border-secondary/50 dark:bg-secondary/15 dark:text-sky-200 md:text-sm"
+                                            >
+                                                {item}
+                                            </span>
+                                        ))}
+                                    </div>
                                 </div>
                             </article>
                         );

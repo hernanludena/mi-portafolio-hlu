@@ -6,40 +6,57 @@ type AnimatedTextProps = {
     text: string;
     className?: string;
     delay?: number;
+    stagger?: number;
 };
 
-const container = (delay: number) => ({
-    hidden: { opacity: 0 },
-    visible: {
+const quote = (delay: number, stagger: number) => ({
+    initial: { opacity: 1 },
+    animate: {
         opacity: 1,
-        transition: { staggerChildren: 0.04, delayChildren: delay },
+        transition: {
+            delay,
+            staggerChildren: stagger,
+        },
     },
 });
 
-const child = {
-    hidden: { opacity: 0, y: 24 },
-    visible: {
+const singleWord = {
+    initial: { opacity: 0, y: 50 },
+    animate: {
         opacity: 1,
         y: 0,
-        transition: { type: "spring", damping: 12, stiffness: 120 },
+        transition: { duration: 1 },
     },
 };
 
-export const AnimatedText = ({ text, className, delay = 0.2 }: AnimatedTextProps) => {
-    const letters = Array.from(text);
+export const AnimatedText = ({
+    text,
+    className,
+    delay = 0.35,
+    stagger = 0.08,
+}: AnimatedTextProps) => {
+    const words = text.split(" ");
 
     return (
         <motion.span
             aria-label={text}
-            role="heading"
-            variants={container(delay)}
-            initial="hidden"
-            animate="visible"
-            className={`inline-block ${className ?? ""}`}
+            variants={quote(delay, stagger)}
+            initial="initial"
+            animate="animate"
+            className={`inline-block w-full overflow-hidden ${className ?? ""}`}
         >
-            {letters.map((letter, index) => (
-                <motion.span key={index} variants={child} className="inline-block">
-                    {letter === " " ? " " : letter}
+            {words.map((word, index) => (
+                <motion.span
+                    key={`${word}-${index}`}
+                    variants={singleWord}
+                    className="inline-block"
+                >
+                    {Array.from(word).map((char, charIndex) => (
+                        <span key={`${char}-${charIndex}`} className="inline-block">
+                            {char}
+                        </span>
+                    ))}
+                    {index < words.length - 1 ? "\u00A0" : null}
                 </motion.span>
             ))}
         </motion.span>

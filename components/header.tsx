@@ -24,13 +24,13 @@ const Header = () => {
                     </Link>
 
                     {/* Navegación de texto */}
-                    <nav className="col-span-3 flex flex-wrap items-center justify-center gap-x-1 gap-y-1 sm:gap-x-2 md:col-span-1 md:justify-start">
+                    <nav className="col-span-3 flex flex-wrap items-center justify-center gap-x-1.5 gap-y-1 sm:gap-x-3 md:col-span-1 md:justify-start">
                         {itemsNavbar.map((item) => (
                             <Link
                                 key={item.id}
                                 href={item.link}
-                                className={`relative whitespace-nowrap px-1.5 py-1 text-xs transition-colors duration-300 hover:text-secondary sm:px-2 sm:py-1.5 sm:text-sm
-                                    after:absolute after:left-1.5 after:right-1.5 after:-bottom-0.5 after:h-0.5 sm:after:left-2 sm:after:right-2
+                                className={`relative whitespace-nowrap px-2 py-1 text-sm font-medium transition-colors duration-300 hover:text-secondary sm:px-2.5 sm:py-1.5 sm:text-base md:text-lg
+                                    after:absolute after:left-2 after:right-2 after:-bottom-0.5 after:h-0.5 sm:after:left-2.5 sm:after:right-2.5
                                     after:origin-left after:scale-x-0 after:bg-secondary
                                     after:transition-transform after:duration-300 hover:after:scale-x-100
                                     ${pathname === item.link ? "text-secondary font-semibold after:scale-x-100" : ""}`}

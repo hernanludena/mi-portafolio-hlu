@@ -21,7 +21,7 @@ const ProjectsPage = () => {
                     {t("projects.title1")} <span className="font-bold text-secondary">{t("projects.title2")}</span>
                 </h1>
 
-                <div className="grid gap-6 mt-10 md:grid-cols-2 lg:max-w-4xl">
+                <div className="grid gap-6 mt-10 md:grid-cols-2 lg:grid-cols-3">
                     {projects.map((p) => (
                         <div
                             key={p.slug}

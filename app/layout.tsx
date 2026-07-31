@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
+import { La_Belle_Aurore } from "next/font/google";
 
 import "./globals.css";
 import 'swiper/css';
@@ -11,11 +12,17 @@ import { CoverParticles } from "@/components/cover-particles";
 import { ThemeProvider } from "@/components/theme-provider";
 import { LanguageProvider } from "@/components/language-provider";
 
+const laBelleAurore = La_Belle_Aurore({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-la-belle-aurore",
+});
+
 // TODO: cambia esta URL por tu dominio real cuando publiques
 const siteUrl = "https://hernanludena.com";
 const siteTitle = "Hernán Ludeña — Tech Lead & Software Engineer";
 const siteDescription =
-  "Portafolio de Hernán Ludeña, Tech Lead y Full Stack Java con más de 15 años de experiencia en software financiero, microservicios, cloud (AWS) y liderazgo técnico.";
+  "Portafolio de Hernán Ludeña, Tech Lead y Full Stack Java con más de 19 años de experiencia en software financiero, microservicios, cloud (AWS) y liderazgo técnico.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -75,7 +82,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`dark ${GeistSans.variable} ${GeistMono.variable}`}>
+    <html lang="en" className={`dark ${GeistSans.variable} ${GeistMono.variable} ${laBelleAurore.variable}`}>
       <body className="font-sans">
         <ThemeProvider>
           <LanguageProvider>
