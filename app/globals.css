@@ -134,10 +134,44 @@ main {
   @apply mx-auto my-6 w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl;
 }
 
+.blog-figure--phone {
+  max-width: 200px;
+}
+
+@media (min-width: 640px) {
+  .blog-figure--phone {
+    max-width: 240px;
+  }
+}
+
+@media (min-width: 768px) {
+  .blog-figure--phone {
+    max-width: 260px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .blog-figure--phone {
+    max-width: 280px;
+  }
+}
+
 .blog-figure__img {
   @apply w-full h-auto rounded-xl border border-black/10 dark:border-white/10;
 }
 
 .blog-figure__caption {
   @apply px-2 py-2 mt-2 text-xs text-center opacity-70 md:text-sm;
+}
+
+.blog-figure-grid {
+  @apply grid grid-cols-1 gap-4 my-6 sm:grid-cols-2 sm:gap-6 justify-items-center;
+}
+
+.blog-figure-grid .blog-figure {
+  @apply my-0 w-full;
+}
+
+.blog-figure-grid .blog-figure--phone {
+  max-width: 240px;
 }

@@ -1,6 +1,7 @@
 import { patientManagementProject } from "./patient-management-mono";
 import { springTemporalProject } from "./spring-mono-temporal";
 import { springRedisProject } from "./spring-redis";
+import { narrativeGamesProject } from "./narrative-games-ai";
 import type { ProjectDetailDefinition, ProjectLang } from "@/types/project";
 import { resolveProjectCard } from "@/types/project";
 
@@ -8,6 +9,7 @@ const projectDefinitions: ProjectDetailDefinition[] = [
     patientManagementProject,
     springTemporalProject,
     springRedisProject,
+    narrativeGamesProject,
 ];
 
 const projectsBySlug = Object.fromEntries(
@@ -30,4 +32,9 @@ export function getAllProjectCards(lang: ProjectLang = "en") {
     return projectDefinitions.map((def) => resolveProjectCard(def, lang));
 }
 
-export { patientManagementProject, springTemporalProject, springRedisProject };
+export {
+    patientManagementProject,
+    springTemporalProject,
+    springRedisProject,
+    narrativeGamesProject,
+};

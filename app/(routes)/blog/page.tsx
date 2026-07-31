@@ -83,13 +83,15 @@ const BlogPage = () => {
                             href={`/blog/${post.slug}`}
                             className="flex flex-col overflow-hidden transition-all border shadow-sm rounded-2xl border-black/10 bg-black/[0.03] dark:border-white/15 dark:bg-white/5 hover:border-secondary hover:-translate-y-1"
                         >
-                            <Image
-                                src={post.image}
-                                alt={post.title}
-                                width={400}
-                                height={200}
-                                className="object-cover w-full h-44"
-                            />
+                            <div className="overflow-hidden bg-[#0a1628] border-b border-black/10 dark:border-white/10">
+                                <Image
+                                    src={post.image}
+                                    alt={post.title}
+                                    width={800}
+                                    height={450}
+                                    className="object-contain w-full h-auto"
+                                />
+                            </div>
                             <div className="flex flex-col flex-1 p-4">
                                 <h3 className="text-lg font-bold leading-snug">{post.title}</h3>
                                 <p className="mt-2 text-sm opacity-80">

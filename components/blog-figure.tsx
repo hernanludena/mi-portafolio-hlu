@@ -4,11 +4,24 @@ interface BlogFigureProps {
     src: string;
     alt: string;
     caption: string;
+    /** Portrait phone screenshots — keep width small so height stays readable */
+    size?: "default" | "phone";
 }
 
-const BlogFigure = ({ src, alt, caption }: BlogFigureProps) => (
-    <figure className="blog-figure">
-        <Image src={src} alt={alt} width={900} height={600} className="blog-figure__img" />
+const sizeClass = {
+    default: "blog-figure",
+    phone: "blog-figure blog-figure--phone",
+} as const;
+
+const BlogFigure = ({ src, alt, caption, size = "default" }: BlogFigureProps) => (
+    <figure className={sizeClass[size]}>
+        <Image
+            src={src}
+            alt={alt}
+            width={size === "phone" ? 320 : 900}
+            height={size === "phone" ? 640 : 600}
+            className="blog-figure__img"
+        />
         <figcaption className="blog-figure__caption">{caption}</figcaption>
     </figure>
 );

@@ -8,6 +8,12 @@ export const springTemporalDetailEn = (
             the Saga pattern, and an operator approves or rejects within a <strong>48-hour</strong> window.
         </p>
 
+        <BlogFigure
+            src="/projects/spring-temporal-thumbnail-original.png"
+            alt="Original Temporal Credit Workflow capture"
+            caption="Original preview — credit request UI"
+        />
+
         <h2>Architecture</h2>
         <p>Monorepo with three main layers:</p>
         <ul>

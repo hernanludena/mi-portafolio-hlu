@@ -1,9 +1,16 @@
+import { biometricAuthPostDefinition } from "./biometric-auth";
+import { cursorPromptsLuminaPostDefinition } from "./cursor-prompts-lumina";
 import { luminaPostDefinition } from "./lumina-bank";
 import { npePostDefinition } from "./npe";
 import type { BlogLang, BlogPost, BlogPostDefinition } from "@/types/blog";
 import { resolveBlogPost } from "@/types/blog";
 
-const blogPostDefinitions: BlogPostDefinition[] = [luminaPostDefinition, npePostDefinition];
+const blogPostDefinitions: BlogPostDefinition[] = [
+    cursorPromptsLuminaPostDefinition,
+    biometricAuthPostDefinition,
+    luminaPostDefinition,
+    npePostDefinition,
+];
 
 const blogPostsBySlug = Object.fromEntries(
     blogPostDefinitions.map((def) => [def.slug, def])
@@ -31,4 +38,9 @@ export function getAllBlogSlugs(): string[] {
     return blogPostDefinitions.map((def) => def.slug);
 }
 
-export { luminaPostDefinition, npePostDefinition };
+export {
+    biometricAuthPostDefinition,
+    cursorPromptsLuminaPostDefinition,
+    luminaPostDefinition,
+    npePostDefinition,
+};

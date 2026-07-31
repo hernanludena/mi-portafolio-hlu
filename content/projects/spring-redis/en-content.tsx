@@ -8,6 +8,12 @@ export const springRedisDetailEn = (
             and event processing — not just auxiliary storage.
         </p>
 
+        <BlogFigure
+            src="/projects/spring-redis-thumbnail-original.png"
+            alt="Original Spring Redis Currency Service capture"
+            caption="Original preview — Redis Insight and service stack"
+        />
+
         <h2>Architecture</h2>
         <p>Clean Architecture across three layers:</p>
         <ul>

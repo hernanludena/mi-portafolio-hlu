@@ -15,6 +15,12 @@ export const luminaContentEs = (
             con alta disponibilidad, escalabilidad horizontal y seguridad de nivel enterprise.
         </p>
 
+        <BlogFigure
+            src="/blog/lumina-bank-hero-original.png"
+            alt="Hero original del case study Lumina Bank"
+            caption="Vista previa original — arquitectura cloud-native de Lumina Bank"
+        />
+
         <blockquote>
             Lumina Bank es un case study de diseño arquitectónico. Basado en un ejercicio de
             arquitectura empresarial; no representa un despliegue productivo ni datos reales de

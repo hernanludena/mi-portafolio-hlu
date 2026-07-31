@@ -8,6 +8,12 @@ export const springRedisDetailEs = (
             caché, mensajería y procesamiento de eventos — no solo como almacén auxiliar.
         </p>
 
+        <BlogFigure
+            src="/projects/spring-redis-thumbnail-original.png"
+            alt="Captura original del servicio Spring Redis Currency"
+            caption="Vista previa original — Redis Insight y stack del servicio"
+        />
+
         <h2>Arquitectura</h2>
         <p>Clean Architecture en tres capas:</p>
         <ul>

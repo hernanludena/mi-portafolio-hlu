@@ -16,6 +16,12 @@ export const luminaContentEn = (
             horizontal scalability, and enterprise-grade security.
         </p>
 
+        <BlogFigure
+            src="/blog/lumina-bank-hero-original.png"
+            alt="Original Lumina Bank case study hero"
+            caption="Original preview — Lumina Bank cloud-native architecture"
+        />
+
         <blockquote>
             Lumina Bank is an architectural design case study. Based on an enterprise architecture
             exercise; it does not represent a production deployment or real customer data.

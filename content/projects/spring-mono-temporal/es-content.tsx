@@ -8,6 +8,12 @@ export const springTemporalDetailEs = (
             patrón Saga, y un operador aprueba o rechaza dentro de una ventana de <strong>48 horas</strong>.
         </p>
 
+        <BlogFigure
+            src="/projects/spring-temporal-thumbnail-original.png"
+            alt="Captura original del Credit Workflow con Temporal"
+            caption="Vista previa original — UI de solicitud de crédito"
+        />
+
         <h2>Arquitectura</h2>
         <p>Monorepo con tres capas principales:</p>
         <ul>

@@ -8,6 +8,12 @@ export const patientManagementDetailEs = (
             orquestado con <strong>Docker Compose</strong> y desplegable en AWS ECS vía CDK + LocalStack.
         </p>
 
+        <BlogFigure
+            src="/projects/patient-management-thumbnail-original.png"
+            alt="Captura original del monorepo Patient Management"
+            caption="Vista previa original — cliente React de pruebas"
+        />
+
         <h2>Arquitectura</h2>
         <p>Seis microservicios con responsabilidades claras:</p>
         <ul>

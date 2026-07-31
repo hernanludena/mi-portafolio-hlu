@@ -4,7 +4,7 @@ import { luminaContentEn } from "./en-content";
 
 export const luminaPostDefinition: BlogPostDefinition = {
     slug: "lumina-bank-scalable-architecture",
-    image: "/blog/lumina-bank-hero.png",
+    image: "/blog/lumina-card.png",
     date: "28/06/2026",
     updatedAt: "28/06/2026",
     tags: ["SoftwareArchitecture", "Cloud", "Java", "Banking"],

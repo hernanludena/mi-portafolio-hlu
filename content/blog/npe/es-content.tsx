@@ -12,6 +12,12 @@ export const npeContentEs = (
             masivas por retrasos en las transacciones.
         </p>
 
+        <BlogFigure
+            src="/blog/npe-hero-thumbnail-original.png"
+            alt="Hero original del análisis NPE y consumidores Kafka"
+            caption="Vista previa original — colapso por NPE en pipeline asíncrono"
+        />
+
         <blockquote>
             Caso anonimizado. Sin nombres de empresa, clientes ni propiedad intelectual
             confidencial. Basado en patrones de incidentes públicos documentados en ingeniería de

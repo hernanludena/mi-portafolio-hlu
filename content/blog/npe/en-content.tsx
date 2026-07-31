@@ -11,6 +11,12 @@ export const npeContentEn = (
             due to delayed transactions.
         </p>
 
+        <BlogFigure
+            src="/blog/npe-hero-thumbnail-original.png"
+            alt="Original NPE and Kafka consumers analysis hero"
+            caption="Original preview — NPE collapse in async pipeline"
+        />
+
         <blockquote>
             Anonymized case. No company names, customer data, or confidential intellectual property.
             Based on publicly documented incident patterns in software engineering.
