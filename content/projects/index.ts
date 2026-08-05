@@ -1,8 +1,10 @@
 import { patientManagementProject } from "./patient-management-mono";
 import { springTemporalProject } from "./spring-mono-temporal";
 import { springRedisProject } from "./spring-redis";
+import { springOllamaProject } from "./spring-ollama-final";
 import { narrativeGamesProject } from "./narrative-games-ai";
 import { demoFirebaseExpensesProject } from "./demo-firebase-expenses";
+import { jobsSearchProject } from "./jobs-search-hlu";
 import type { ProjectDetailDefinition, ProjectLang } from "@/types/project";
 import { resolveProjectCard } from "@/types/project";
 
@@ -10,8 +12,10 @@ const projectDefinitions: ProjectDetailDefinition[] = [
     patientManagementProject,
     springTemporalProject,
     springRedisProject,
+    springOllamaProject,
     narrativeGamesProject,
     demoFirebaseExpensesProject,
+    jobsSearchProject,
 ];
 
 const projectsBySlug = Object.fromEntries(
@@ -38,6 +42,8 @@ export {
     patientManagementProject,
     springTemporalProject,
     springRedisProject,
+    springOllamaProject,
     narrativeGamesProject,
     demoFirebaseExpensesProject,
+    jobsSearchProject,
 };
