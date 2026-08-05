@@ -2,6 +2,7 @@ import { patientManagementProject } from "./patient-management-mono";
 import { springTemporalProject } from "./spring-mono-temporal";
 import { springRedisProject } from "./spring-redis";
 import { narrativeGamesProject } from "./narrative-games-ai";
+import { demoFirebaseExpensesProject } from "./demo-firebase-expenses";
 import type { ProjectDetailDefinition, ProjectLang } from "@/types/project";
 import { resolveProjectCard } from "@/types/project";
 
@@ -10,6 +11,7 @@ const projectDefinitions: ProjectDetailDefinition[] = [
     springTemporalProject,
     springRedisProject,
     narrativeGamesProject,
+    demoFirebaseExpensesProject,
 ];
 
 const projectsBySlug = Object.fromEntries(
@@ -37,4 +39,5 @@ export {
     springTemporalProject,
     springRedisProject,
     narrativeGamesProject,
+    demoFirebaseExpensesProject,
 };
