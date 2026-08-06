@@ -106,6 +106,12 @@ Oracle Database`}
             Esta capa mejora tanto la disponibilidad como el rendimiento de la plataforma.
         </p>
 
+        <BlogFigure
+            src="/blog/defense-in-depth-perimeter.png"
+            alt="Defensa perimetral con Cloudflare y NetScaler ADC"
+            caption="Perímetro — Cloudflare filtra amenazas en el edge; NetScaler balancea, termina SSL y asegura disponibilidad"
+        />
+
         <h2>Comunicaciones seguras</h2>
         <p>
             Toda la comunicación entre la aplicación móvil y el backend debe viajar cifrada mediante
@@ -250,6 +256,12 @@ Oracle Database`}
             <li>horario atípico,</li>
             <li>dirección IP sospechosa.</li>
         </ul>
+
+        <BlogFigure
+            src="/blog/defense-in-depth-mfa-risk.png"
+            alt="Autenticación multifactor y Risk-Based Authentication en banca móvil"
+            caption="MFA + Risk-Based Auth — OTP, biometría, device binding y step-up según contexto de riesgo"
+        />
 
         <h2>Protección contra ataques de repetición</h2>
         <p>
