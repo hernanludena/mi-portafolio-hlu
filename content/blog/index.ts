@@ -1,3 +1,4 @@
+import { bianAdopcionPostDefinition } from "./bian-adopcion";
 import { biometricAuthPostDefinition } from "./biometric-auth";
 import { cursorPromptsLuminaPostDefinition } from "./cursor-prompts-lumina";
 import { luminaPostDefinition } from "./lumina-bank";
@@ -6,6 +7,7 @@ import type { BlogLang, BlogPost, BlogPostDefinition } from "@/types/blog";
 import { resolveBlogPost } from "@/types/blog";
 
 const blogPostDefinitions: BlogPostDefinition[] = [
+    bianAdopcionPostDefinition,
     cursorPromptsLuminaPostDefinition,
     biometricAuthPostDefinition,
     luminaPostDefinition,
@@ -39,6 +41,7 @@ export function getAllBlogSlugs(): string[] {
 }
 
 export {
+    bianAdopcionPostDefinition,
     biometricAuthPostDefinition,
     cursorPromptsLuminaPostDefinition,
     luminaPostDefinition,
