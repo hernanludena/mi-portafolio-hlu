@@ -1,12 +1,16 @@
 import { bianAdopcionPostDefinition } from "./bian-adopcion";
 import { biometricAuthPostDefinition } from "./biometric-auth";
 import { cursorPromptsLuminaPostDefinition } from "./cursor-prompts-lumina";
+import { defenseInDepthPostDefinition } from "./defense-in-depth";
 import { luminaPostDefinition } from "./lumina-bank";
+import { mobileThreatsMitigationsPostDefinition } from "./mobile-threats-mitigations";
 import { npePostDefinition } from "./npe";
 import type { BlogLang, BlogPost, BlogPostDefinition } from "@/types/blog";
 import { resolveBlogPost } from "@/types/blog";
 
 const blogPostDefinitions: BlogPostDefinition[] = [
+    mobileThreatsMitigationsPostDefinition,
+    defenseInDepthPostDefinition,
     bianAdopcionPostDefinition,
     cursorPromptsLuminaPostDefinition,
     biometricAuthPostDefinition,
@@ -41,6 +45,8 @@ export function getAllBlogSlugs(): string[] {
 }
 
 export {
+    mobileThreatsMitigationsPostDefinition,
+    defenseInDepthPostDefinition,
     bianAdopcionPostDefinition,
     biometricAuthPostDefinition,
     cursorPromptsLuminaPostDefinition,
