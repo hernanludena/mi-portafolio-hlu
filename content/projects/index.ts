@@ -2,6 +2,7 @@ import { patientManagementProject } from "./patient-management-mono";
 import { springTemporalProject } from "./spring-mono-temporal";
 import { springRedisProject } from "./spring-redis";
 import { springOllamaProject } from "./spring-ollama-final";
+import { kafkaSpringAsyncProject } from "./kafka-spring-async";
 import { narrativeGamesProject } from "./narrative-games-ai";
 import { demoFirebaseExpensesProject } from "./demo-firebase-expenses";
 import { jobsSearchProject } from "./jobs-search-hlu";
@@ -13,6 +14,7 @@ const projectDefinitions: ProjectDetailDefinition[] = [
     springTemporalProject,
     springRedisProject,
     springOllamaProject,
+    kafkaSpringAsyncProject,
     narrativeGamesProject,
     demoFirebaseExpensesProject,
     jobsSearchProject,
@@ -43,6 +45,7 @@ export {
     springTemporalProject,
     springRedisProject,
     springOllamaProject,
+    kafkaSpringAsyncProject,
     narrativeGamesProject,
     demoFirebaseExpensesProject,
     jobsSearchProject,
