@@ -4,6 +4,8 @@ import { springRedisProject } from "./spring-redis";
 import { springOllamaProject } from "./spring-ollama-final";
 import { kafkaSpringAsyncProject } from "./kafka-spring-async";
 import { hexagonalArchitectureProject } from "./hexagonalarchitecture";
+import { bankflowProject } from "./bankflow";
+import { fastapiImageUploaderProject } from "./fastapi-image-uploader";
 import { narrativeGamesProject } from "./narrative-games-ai";
 import { demoFirebaseExpensesProject } from "./demo-firebase-expenses";
 import { jobsSearchProject } from "./jobs-search-hlu";
@@ -11,6 +13,8 @@ import type { ProjectDetailDefinition, ProjectLang } from "@/types/project";
 import { resolveProjectCard } from "@/types/project";
 
 const projectDefinitions: ProjectDetailDefinition[] = [
+    fastapiImageUploaderProject,
+    bankflowProject,
     hexagonalArchitectureProject,
     patientManagementProject,
     springTemporalProject,
@@ -43,6 +47,8 @@ export function getAllProjectCards(lang: ProjectLang = "en") {
 }
 
 export {
+    fastapiImageUploaderProject,
+    bankflowProject,
     hexagonalArchitectureProject,
     patientManagementProject,
     springTemporalProject,
