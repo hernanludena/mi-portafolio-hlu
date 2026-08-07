@@ -131,7 +131,7 @@ main {
 }
 
 .blog-figure {
-  @apply mx-auto my-6 w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl;
+  @apply mx-auto my-6 w-full max-w-sm sm:max-w-md md:max-w-lg;
 }
 
 .blog-figure--phone {

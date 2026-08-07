@@ -5,10 +5,12 @@ import { defenseInDepthPostDefinition } from "./defense-in-depth";
 import { luminaPostDefinition } from "./lumina-bank";
 import { mobileThreatsMitigationsPostDefinition } from "./mobile-threats-mitigations";
 import { npePostDefinition } from "./npe";
+import { pythonCliControlPlanePostDefinition } from "./python-cli-control-plane";
 import type { BlogLang, BlogPost, BlogPostDefinition } from "@/types/blog";
 import { resolveBlogPost } from "@/types/blog";
 
 const blogPostDefinitions: BlogPostDefinition[] = [
+    pythonCliControlPlanePostDefinition,
     mobileThreatsMitigationsPostDefinition,
     defenseInDepthPostDefinition,
     bianAdopcionPostDefinition,
@@ -45,6 +47,7 @@ export function getAllBlogSlugs(): string[] {
 }
 
 export {
+    pythonCliControlPlanePostDefinition,
     mobileThreatsMitigationsPostDefinition,
     defenseInDepthPostDefinition,
     bianAdopcionPostDefinition,

@@ -4,7 +4,7 @@ import { fastapiImageUploaderDetailEn } from "./en-content";
 
 export const fastapiImageUploaderProject: ProjectDetailDefinition = {
     slug: "fastapi-image-uploader",
-    image: "/projects/fastapi-image-uploader-thumbnail.png",
+    image: "/projects/fastapi-image-uploader-card.png",
     tags: ["Python", "FastAPI", "Next.js", "Supabase", "Storage"],
     urlGithub: "https://github.com/hernanludena/fastapi-image-uploader",
     urlDemo: "",

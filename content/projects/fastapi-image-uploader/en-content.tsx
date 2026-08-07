@@ -9,7 +9,7 @@ export const fastapiImageUploaderDetailEn = (
         </p>
 
         <BlogFigure
-            src="/projects/fastapi-image-uploader-thumbnail-original.png"
+            src="/projects/fastapi-image-uploader-card-original.png"
             alt="FastAPI Image Uploader thumbnail — Next.js, FastAPI, Supabase"
             caption="Preview — Next.js → FastAPI → Supabase Storage"
         />
