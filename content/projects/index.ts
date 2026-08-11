@@ -6,6 +6,7 @@ import { kafkaSpringAsyncProject } from "./kafka-spring-async";
 import { hexagonalArchitectureProject } from "./hexagonalarchitecture";
 import { bankflowProject } from "./bankflow";
 import { fastapiImageUploaderProject } from "./fastapi-image-uploader";
+import { bankflowCliProject } from "./bankflow-cli";
 import { narrativeGamesProject } from "./narrative-games-ai";
 import { demoFirebaseExpensesProject } from "./demo-firebase-expenses";
 import { jobsSearchProject } from "./jobs-search-hlu";
@@ -13,6 +14,7 @@ import type { ProjectDetailDefinition, ProjectLang } from "@/types/project";
 import { resolveProjectCard } from "@/types/project";
 
 const projectDefinitions: ProjectDetailDefinition[] = [
+    bankflowCliProject,
     fastapiImageUploaderProject,
     bankflowProject,
     hexagonalArchitectureProject,
@@ -47,6 +49,7 @@ export function getAllProjectCards(lang: ProjectLang = "en") {
 }
 
 export {
+    bankflowCliProject,
     fastapiImageUploaderProject,
     bankflowProject,
     hexagonalArchitectureProject,
