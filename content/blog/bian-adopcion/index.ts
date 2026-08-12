@@ -5,8 +5,8 @@ import { bianAdopcionContentEn } from "./en-content";
 export const bianAdopcionPostDefinition: BlogPostDefinition = {
     slug: "adoptando-bian-openapi-microservicios",
     image: "/blog/bian-adopcion-card.png",
-    date: "06/08/2026",
-    updatedAt: "06/08/2026",
+    date: "14/08/2024",
+    updatedAt: "14/08/2024",
     tags: ["SoftwareArchitecture", "BIAN", "OpenAPI", "Banking", "Java"],
     locales: {
         es: {

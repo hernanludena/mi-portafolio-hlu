@@ -5,8 +5,8 @@ import { defenseInDepthContentEn } from "./en-content";
 export const defenseInDepthPostDefinition: BlogPostDefinition = {
     slug: "defense-in-depth-banca-movil",
     image: "/blog/defense-in-depth-card.png",
-    date: "06/08/2026",
-    updatedAt: "06/08/2026",
+    date: "21/01/2025",
+    updatedAt: "21/01/2025",
     tags: ["SoftwareArchitecture", "CyberSecurity", "Mobile", "Banking", "Java"],
     locales: {
         es: {

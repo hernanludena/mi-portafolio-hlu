@@ -5,8 +5,8 @@ import { cursorPromptsLuminaContentEn } from "./en-content";
 export const cursorPromptsLuminaPostDefinition: BlogPostDefinition = {
     slug: "cursor-prompt-frameworks-lumina-bank",
     image: "/blog/cursor-prompts-lumina-card.png",
-    date: "31/07/2026",
-    updatedAt: "31/07/2026",
+    date: "14/02/2026",
+    updatedAt: "14/02/2026",
     tags: ["Cursor", "AI", "PromptEngineering", "Banking", "Java", "React"],
     locales: {
         es: {

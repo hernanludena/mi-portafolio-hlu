@@ -5,8 +5,8 @@ import { mobileThreatsMitigationsContentEn } from "./en-content";
 export const mobileThreatsMitigationsPostDefinition: BlogPostDefinition = {
     slug: "amenazas-mitigaciones-banca-movil",
     image: "/blog/mobile-threats-mitigations-card.png",
-    date: "06/08/2026",
-    updatedAt: "06/08/2026",
+    date: "16/04/2025",
+    updatedAt: "16/04/2025",
     tags: ["SoftwareArchitecture", "CyberSecurity", "Mobile", "Banking"],
     locales: {
         es: {
