@@ -5,8 +5,8 @@ import { snykDevsecopsContentEn } from "./en-content";
 export const snykDevsecopsPostDefinition: BlogPostDefinition = {
     slug: "snyk-devsecops-security-sdlc",
     image: "/blog/snyk-devsecops-card.png",
-    date: "12/08/2026",
-    updatedAt: "12/08/2026",
+    date: "05/11/2025",
+    updatedAt: "05/11/2025",
     tags: [
         "DevSecOps",
         "Snyk",

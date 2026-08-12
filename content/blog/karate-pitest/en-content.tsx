@@ -21,22 +21,20 @@ export const karatePitestContentEn = (
             <strong>how do I prove my tests can actually catch errors?</strong>
         </p>
         <p>
-            I analyze two tools on different quality layers: <strong>Karate</strong> (integration /
-            APIs / flows) and <strong>PITest (PIT)</strong> (mutation testing / test effectiveness).
-            They do not compete — they work on different layers.
+            I analyze complementary quality layers: <strong>Gherkin</strong> (how I describe
+            behavior), <strong>Karate</strong> (how I run API scenarios),{" "}
+            <strong>Testcontainers</strong> (real infrastructure in tests) and{" "}
+            <strong>PITest (PIT)</strong> (how effective the tests are). They do not compete — each
+            answers a different question.
         </p>
         <pre className="p-4 overflow-x-auto text-sm rounded-xl bg-black/[0.04] dark:bg-white/[0.06] font-mono">
-            {`         SOFTWARE QUALITY
-                    │
-     ┌──────────────┴──────────────┐
-     │                             │
-Does the system work?       Are the tests good?
-     │                             │
-  KARATE                         PIT
-Integration tests          Mutation testing
-     └──────────────┬──────────────┘
-                    │
-             HIGHER CONFIDENCE`}
+            {`Gherkin        → how I describe the scenario
+Karate         → how I execute the scenario
+Testcontainers → real infrastructure
+PITest         → I evaluate test effectiveness
+        │
+        ▼
+  HIGHER CONFIDENCE`}
         </pre>
 
         <BlogFigure
@@ -108,7 +106,77 @@ And match response.status == 'APPROVED'`}
             this behavior?&rdquo;, not &ldquo;was this Java line executed?&rdquo;.
         </p>
 
-        <h2>4. What problem does PITest solve?</h2>
+        <h2>4. What is Gherkin?</h2>
+        <p>
+            <strong>Gherkin</strong> is a structured text language for writing human-readable test
+            cases. It is used in BDD (Behavior-Driven Development) with tools such as Cucumber and
+            Karate. It describes <strong>what the system should do</strong>, without focusing on how
+            it is implemented.
+        </p>
+        <pre className="p-4 overflow-x-auto text-sm rounded-xl bg-black/[0.04] dark:bg-white/[0.06] font-mono">
+            {`Feature: Transfers
+
+Scenario: Complete a successful transfer
+
+  Given the user has an account with a balance of 1000 USD
+  And the destination account exists
+  When the user transfers 200 USD
+  Then the transfer should be approved
+  And the balance should be 800 USD`}
+        </pre>
+        <pre className="p-4 overflow-x-auto text-sm rounded-xl bg-black/[0.04] dark:bg-white/[0.06] font-mono">
+            {`Feature   → capability
+Scenario  → scenario
+Given     → precondition
+When      → action
+Then      → expected outcome
+And       → additional step`}
+        </pre>
+        <p>
+            It separates the <strong>what</strong> from the <strong>how</strong>: business, QA and
+            engineering can read the same scenario. Business understands &ldquo;given $1,000, when
+            I transfer $200, then balance is $800&rdquo; without Java, Spring, HTTP or SQL.
+        </p>
+        <p>
+            <strong>Gherkin is not a testing tool by itself</strong> — it is a language/format for
+            describing scenarios. Karate (or another runner) executes them.
+        </p>
+
+        <BlogFigure
+            src="/blog/karate-pitest-gherkin.png"
+            alt="Gherkin: Feature, Scenario, Given/When/Then shared by QA and Developer"
+            caption="Gherkin — shared language: what the system should do, not how it is built"
+        />
+
+        <h2>5. Gherkin + Karate</h2>
+        <p>
+            Karate uses Gherkin-based syntax, but it is not simply &ldquo;Cucumber for APIs&rdquo;.
+            It interprets steps and runs HTTP operations:
+        </p>
+        <pre className="p-4 overflow-x-auto text-sm rounded-xl bg-black/[0.04] dark:bg-white/[0.06] font-mono">
+            {`Scenario: Query an account
+
+  Given url baseUrl
+  And path '/accounts/123'
+  When method get
+  Then status 200
+  And match response.status == 'ACTIVE'`}
+        </pre>
+        <pre className="p-4 overflow-x-auto text-sm rounded-xl bg-black/[0.04] dark:bg-white/[0.06] font-mono">
+            {`Gherkin  → language/syntax
+   │
+Karate   → executes
+   │
+API / System`}
+        </pre>
+        <p>
+            Without Gherkin: <code>@Test void shouldApprovePayment()</code> expresses the test
+            implementation. With Gherkin: the scenario better expresses the{" "}
+            <strong>expected behavior</strong>. Gherkin/Karate answers which behavior must work; PIT
+            helps check how good the tests protecting the code are.
+        </p>
+
+        <h2>6. What problem does PITest solve?</h2>
         <pre className="p-4 overflow-x-auto text-sm rounded-xl bg-black/[0.04] dark:bg-white/[0.06] font-mono">
             {`return customer.getAge() >= 18;   // original
 return customer.getAge() > 18;    // mutant
@@ -121,7 +189,7 @@ Test with age=25 → passes both → SURVIVED ❌`}
             <strong>survived</strong>.
         </p>
 
-        <h2>5. How PIT works</h2>
+        <h2>7. How PIT works</h2>
         <p>
             Code → compile → bytecode → PIT creates mutants → tests per mutant → KILLED / SURVIVED.
             It works on <strong>bytecode</strong>, not source-text replacement.
@@ -138,7 +206,7 @@ Test with age=25 → passes both → SURVIVED ❌`}
             caption="PIT flow — mutations on bytecode; killed vs survived"
         />
 
-        <h2>6. Mutation Score</h2>
+        <h2>8. Mutation Score</h2>
         <pre className="p-4 overflow-x-auto text-sm rounded-xl bg-black/[0.04] dark:bg-white/[0.06] font-mono">
             {`Mutation Score = Killed Mutants / Relevant Mutants
 
@@ -152,7 +220,7 @@ Test with age=25 → passes both → SURVIVED ❌`}
             100 mutations ≠ 100 potential defects.
         </p>
 
-        <h2>7. Coverage vs mutation vs integration</h2>
+        <h2>9. Coverage vs mutation vs integration</h2>
         <div className="overflow-x-auto my-6">
             <table className="w-full text-sm border-collapse">
                 <thead>
@@ -187,7 +255,7 @@ Test with age=25 → passes both → SURVIVED ❌`}
             effectiveness of unit tests.
         </p>
 
-        <h2>8. One bug, two perspectives</h2>
+        <h2>10. One bug, two perspectives</h2>
         <p>
             API <code>POST /payments</code>, rule <code>amount &gt; 1000 → APPROVED</code>. Unit
             test with 1500 passes. Karate with 1500 passes. PIT mutates to <code>&gt;=</code>.
@@ -201,18 +269,19 @@ Test with age=25 → passes both → SURVIVED ❌`}
             caption="One bug, two perspectives — Karate may pass; PIT demands the 1000 boundary"
         />
 
-        <h2>9. Testing architecture</h2>
+        <h2>11. Testing architecture</h2>
         <pre className="p-4 overflow-x-auto text-sm rounded-xl bg-black/[0.04] dark:bg-white/[0.06] font-mono">
             {`Client → REST Controller → Service → Repository → Database
 
 Unit tests (JUnit/Mockito)  → Service
-Karate                      → API + integration
+Gherkin + Karate            → behavior + API
+Testcontainers              → real DB/broker in the test
 PIT                         → unit-test effectiveness`}
         </pre>
         <p>
-            Pyramid: large unit base (fast/cheap); Karate for key integration behaviors; PIT
-            selectively on unit-test quality. Do not turn 1000 business rules into 1000 HTTP tests —
-            slow, brittle, expensive.
+            Pyramid: large unit base (fast/cheap); Karate for key integration behaviors;
+            Testcontainers so infrastructure is not fake; PIT selectively on unit-test quality. Do
+            not turn 1000 business rules into 1000 HTTP tests — slow, brittle, expensive.
         </p>
 
         <BlogFigure
@@ -221,7 +290,44 @@ PIT                         → unit-test effectiveness`}
             caption="Strategy — each layer answers a different question"
         />
 
-        <h2>10. What to evaluate with PIT? With Karate?</h2>
+        <h2>12. Testcontainers: real infrastructure</h2>
+        <p>
+            A Gherkin/Karate scenario that asserts database state loses value if that DB is a
+            shallow mock or an H2 unlike production. <strong>Testcontainers</strong> starts real
+            containers (Postgres, Redis, Kafka, etc.) for the test and tears them down afterward.
+        </p>
+        <pre className="p-4 overflow-x-auto text-sm rounded-xl bg-black/[0.04] dark:bg-white/[0.06] font-mono">
+            {`Karate scenario
+      │
+      ▼
+Spring Boot API
+      │
+      ▼
+Testcontainers ──► Postgres / Redis / Kafka (Docker)
+      │
+      ▼
+Assertions (HTTP + real state)`}
+        </pre>
+        <p>
+            Integration stops being &ldquo;API + mock&rdquo; and gets closer to &ldquo;API +
+            runtime-comparable infrastructure&rdquo;. CI/CD needs Docker available; the cost is
+            more pipeline time in exchange for fewer production surprises.
+        </p>
+        <p>Fit in the stack:</p>
+        <pre className="p-4 overflow-x-auto text-sm rounded-xl bg-black/[0.04] dark:bg-white/[0.06] font-mono">
+            {`Gherkin        → which behavior
+Karate         → how I run it (HTTP)
+Testcontainers → on which real infra
+PIT            → how strong my unit tests are`}
+        </pre>
+
+        <BlogFigure
+            src="/blog/karate-pitest-testcontainers.png"
+            alt="Testing stack layers: Gherkin, Karate, Testcontainers and PITest"
+            caption="Full stack — describe, execute, real infra, test effectiveness"
+        />
+
+        <h2>13. What to evaluate with PIT? With Karate?</h2>
         <p>
             <strong>Prioritize with PIT:</strong> business logic, services, validations, rules,
             calculations, transformations, important decisions.
@@ -231,19 +337,21 @@ PIT                         → unit-test effectiveness`}
             trivial adapters, logging.
         </p>
         <p>
-            <strong>Karate:</strong> critical API flows, not the whole strategy. Unit tests = most
-            volume; integration = less volume; E2E = few critical scenarios.
+            <strong>Karate + Gherkin:</strong> critical API flows described as behavior, not the
+            whole strategy. <strong>Testcontainers:</strong> when the scenario depends on a real
+            DB/broker. Unit tests = most volume; integration = less volume; E2E = few critical
+            scenarios.
         </p>
 
-        <h2>11. Realistic CI/CD</h2>
+        <h2>14. Realistic CI/CD</h2>
         <p>
             Mutation testing is expensive. PIT recommends frequent analysis on changed code. Not on
             every commit.
         </p>
         <pre className="p-4 overflow-x-auto text-sm rounded-xl bg-black/[0.04] dark:bg-white/[0.06] font-mono">
-            {`Unit tests        → every commit
-Integration/Karate → every PR / pipeline
-PIT                → important PR / touched code / quality pipeline`}
+            {`Unit tests              → every commit
+Integration/Karate+TC   → every PR / pipeline
+PIT                     → important PR / touched code / quality pipeline`}
         </pre>
 
         <BlogFigure
@@ -252,17 +360,18 @@ PIT                → important PR / touched code / quality pipeline`}
             caption="Pipelines — fast feedback + deep quality, not everything always"
         />
 
-        <h2>12. Maven, structure and metrics</h2>
+        <h2>15. Maven, structure and metrics</h2>
         <p>
             PIT integrates via Maven/Gradle plugin and produces an HTML report (classes, methods,
-            lines, killed/survived). Keep unit / integration / mutation separable.
+            lines, killed/survived). Keep unit / integration / mutation separable. Testcontainers
+            usually lives in the same integration module (JUnit + Docker).
         </p>
         <pre className="p-4 overflow-x-auto text-sm rounded-xl bg-black/[0.04] dark:bg-white/[0.06] font-mono">
             {`project/
 ├── src/main/java
-├── src/test/java          # unit
-├── karate/features/…      # integration
-└── pom.xml                # JUnit, Mockito, Karate, PIT`}
+├── src/test/java          # unit (+ PIT)
+├── karate/features/…      # Gherkin scenarios
+└── pom.xml                # JUnit, Mockito, Karate, Testcontainers, PIT`}
         </pre>
         <p>
             Combine metrics (illustrative): line/branch coverage + mutation score + Karate
@@ -270,7 +379,7 @@ PIT                → important PR / touched code / quality pipeline`}
             <strong>which behavior each test protects</strong>.
         </p>
 
-        <h2>13. Progressive confidence</h2>
+        <h2>16. Progressive confidence</h2>
         <ul>
             <li>
                 <strong>Unit</strong> — does this unit work?
@@ -282,44 +391,55 @@ PIT                → important PR / touched code / quality pipeline`}
                 <strong>PIT</strong> — do we detect incorrect changes?
             </li>
             <li>
-                <strong>Karate</strong> — does the integrated system behave correctly?
+                <strong>Gherkin</strong> — which behavior did we agree on?
+            </li>
+            <li>
+                <strong>Karate + Testcontainers</strong> — does the integrated system behave
+                correctly on real infra?
             </li>
             <li>
                 <strong>E2E</strong> — does the full flow work?
             </li>
         </ul>
         <p>
-            In microservices: each service with unit + PIT + Karate; plus cross-service Karate
-            scenarios when the flow crosses Customer → Payment → Notification.
+            In microservices: each service with unit + PIT + Karate; Testcontainers for critical
+            external dependencies; plus cross-service Karate scenarios when the flow crosses
+            Customer → Payment → Notification.
         </p>
 
-        <h2>14. What I would not do</h2>
+        <h2>17. What I would not do</h2>
         <ul>
             <li>100% coverage by obligation → artificial tests.</li>
             <li>100% mutation score → high effort, low value.</li>
             <li>Karate for absolutely everything → slow/brittle suite.</li>
             <li>PIT on absolutely everything → unnecessarily slow pipeline.</li>
             <li>
+                Testcontainers for everything (including pure unit tests) → cost without benefit.
+            </li>
+            <li>
                 Ignoring survived mutants: missing test? or does the mutation not matter?
             </li>
         </ul>
 
-        <h2>15. Conclusion</h2>
+        <h2>18. Conclusion</h2>
         <pre className="p-4 overflow-x-auto text-sm rounded-xl bg-black/[0.04] dark:bg-white/[0.06] font-mono">
-            {`KARATE  → Does the system do what it should?
-PIT     → Would my tests detect if it stopped doing that?`}
+            {`GHERKIN        → What should the system do?
+KARATE         → Does it (via API)?
+TESTCONTAINERS → On real infra?
+PIT            → Would my tests detect if it stopped?`}
         </pre>
         <p>
             A mature strategy does not stop at &ldquo;85% coverage.&rdquo; It should answer: which
-            code / scenarios / integrations we test, which errors tests can catch, which mutants
-            survive, which risks remain.
+            behavior we describe, which code / scenarios / integrations we test, on which
+            infrastructure, which errors tests can catch, which mutants survive, which risks remain.
         </p>
         <blockquote>
             <strong>Testing does not eliminate risk. It makes risk visible and controllable.</strong>
         </blockquote>
         <p>
-            Chain: JUnit/Mockito → unit correctness → PIT → test effectiveness → Karate →
-            integration correctness → CI/CD → release confidence.
+            Chain: JUnit/Mockito → unit correctness → PIT → test effectiveness → Gherkin/Karate →
+            integration correctness → Testcontainers → infra confidence → CI/CD → release
+            confidence.
         </p>
         <p>
             Key evolution: from &ldquo;how much code do my tests execute?&rdquo; to{" "}
@@ -331,14 +451,14 @@ PIT     → Would my tests detect if it stopped doing that?`}
         <p>
             <em>
                 There are no universal ideal percentages for coverage or mutation score: thresholds
-                depend on risk, criticality and cost. Sources: official Karate and PIT docs
-                (quickstart, basic concepts, mutation operators).
+                depend on risk, criticality and cost. Sources: official Karate, PIT and
+                Testcontainers docs.
             </em>
         </p>
 
         <BlogClosingQuote>
-            Coverage shows what we touched. Mutation shows whether we protect it. Karate shows
-            whether the integrated system responds — together they build real confidence.
+            Gherkin describes the what. Karate runs it. Testcontainers gives real infra. PIT asks
+            whether your tests actually protect the code.
         </BlogClosingQuote>
     </>
 );

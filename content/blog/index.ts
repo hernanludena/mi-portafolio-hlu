@@ -1,31 +1,37 @@
 import { agenticOsPostDefinition } from "./agentic-os";
 import { bianAdopcionPostDefinition } from "./bian-adopcion";
 import { biometricAuthPostDefinition } from "./biometric-auth";
+import { cleanCodeAgenticPostDefinition } from "./clean-code-agentic";
 import { cursorPromptsLuminaPostDefinition } from "./cursor-prompts-lumina";
 import { defenseInDepthPostDefinition } from "./defense-in-depth";
+import { evalsBottleneckPostDefinition } from "./evals-bottleneck";
 import { karatePitestPostDefinition } from "./karate-pitest";
 import { luminaPostDefinition } from "./lumina-bank";
 import { mobileThreatsMitigationsPostDefinition } from "./mobile-threats-mitigations";
 import { npePostDefinition } from "./npe";
 import { pythonCliControlPlanePostDefinition } from "./python-cli-control-plane";
 import { snykDevsecopsPostDefinition } from "./snyk-devsecops";
+import { specDrivenDevelopmentPostDefinition } from "./spec-driven-development";
 import { tokenOptimizationPostDefinition } from "./token-optimization";
 import type { BlogLang, BlogPost, BlogPostDefinition } from "@/types/blog";
 import { resolveBlogPost } from "@/types/blog";
 
 const blogPostDefinitions: BlogPostDefinition[] = [
-    karatePitestPostDefinition, // 12/08/2026
-    snykDevsecopsPostDefinition, // 12/08/2026
-    agenticOsPostDefinition, // 12/08/2026
-    tokenOptimizationPostDefinition, // 12/08/2026
-    pythonCliControlPlanePostDefinition, // 09/05/2026
-    cursorPromptsLuminaPostDefinition, // 14/02/2026
-    mobileThreatsMitigationsPostDefinition, // 16/04/2025
-    defenseInDepthPostDefinition, // 21/01/2025
-    biometricAuthPostDefinition, // 03/11/2024
-    bianAdopcionPostDefinition, // 14/08/2024
-    luminaPostDefinition, // 08/05/2024
-    npePostDefinition, // 19/02/2024
+    specDrivenDevelopmentPostDefinition, // 04/08/2026
+    evalsBottleneckPostDefinition, // 08/07/2026
+    cleanCodeAgenticPostDefinition, // 16/06/2026
+    agenticOsPostDefinition, // 19/05/2026
+    tokenOptimizationPostDefinition, // 28/04/2026
+    pythonCliControlPlanePostDefinition, // 11/03/2026
+    cursorPromptsLuminaPostDefinition, // 22/01/2026
+    snykDevsecopsPostDefinition, // 05/11/2025
+    karatePitestPostDefinition, // 17/07/2025
+    mobileThreatsMitigationsPostDefinition, // 30/04/2025
+    defenseInDepthPostDefinition, // 12/02/2025
+    biometricAuthPostDefinition, // 25/10/2024
+    bianAdopcionPostDefinition, // 09/07/2024
+    luminaPostDefinition, // 18/04/2024
+    npePostDefinition, // 27/01/2024
 ];
 
 const blogPostsBySlug = Object.fromEntries(
@@ -55,6 +61,9 @@ export function getAllBlogSlugs(): string[] {
 }
 
 export {
+    specDrivenDevelopmentPostDefinition,
+    evalsBottleneckPostDefinition,
+    cleanCodeAgenticPostDefinition,
     karatePitestPostDefinition,
     snykDevsecopsPostDefinition,
     agenticOsPostDefinition,

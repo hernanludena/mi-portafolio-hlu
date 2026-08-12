@@ -5,14 +5,17 @@ import { karatePitestContentEn } from "./en-content";
 export const karatePitestPostDefinition: BlogPostDefinition = {
     slug: "karate-pitest-test-confidence",
     image: "/blog/karate-pitest-card.png",
-    date: "12/08/2026",
-    updatedAt: "12/08/2026",
+    date: "17/07/2025",
+    updatedAt: "17/07/2025",
     tags: [
         "Java",
         "Testing",
         "Karate",
+        "Gherkin",
+        "Testcontainers",
         "PITest",
         "MutationTesting",
+        "BDD",
         "IntegrationTests",
         "Quality",
     ],
@@ -20,15 +23,15 @@ export const karatePitestPostDefinition: BlogPostDefinition = {
         es: {
             title: "Karate + PITest: de probar que el sistema funciona a comprobar que tus pruebas realmente lo protegen",
             excerpt:
-                "Estudio técnico: Karate para integración de APIs y PIT para mutation testing — coverage no basta; cómo medir si los tests detectan defectos reales.",
-            readTime: "22 min",
+                "Gherkin describe el qué, Karate lo ejecuta, Testcontainers aporta infra real y PIT mide si los tests detectan defectos — coverage no basta.",
+            readTime: "26 min",
             content: karatePitestContentEs,
         },
         en: {
             title: "Karate + PITest: from proving the system works to proving your tests actually protect it",
             excerpt:
-                "Technical study: Karate for API integration and PIT for mutation testing — coverage is not enough; how to measure whether tests detect real defects.",
-            readTime: "22 min",
+                "Gherkin describes the what, Karate runs it, Testcontainers supplies real infra and PIT measures whether tests catch defects — coverage is not enough.",
+            readTime: "26 min",
             content: karatePitestContentEn,
         },
     },

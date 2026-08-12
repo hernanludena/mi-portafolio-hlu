@@ -5,8 +5,8 @@ import { tokenOptimizationContentEn } from "./en-content";
 export const tokenOptimizationPostDefinition: BlogPostDefinition = {
     slug: "token-optimization-ai-coding-agents",
     image: "/blog/token-optimization-card.png",
-    date: "12/08/2026",
-    updatedAt: "12/08/2026",
+    date: "28/04/2026",
+    updatedAt: "28/04/2026",
     tags: ["AI", "CodingAgents", "Tokens", "RTK", "Architecture", "Cost"],
     locales: {
         es: {

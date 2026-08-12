@@ -5,8 +5,8 @@ import { npeContentEn } from "./en-content";
 export const npePostDefinition: BlogPostDefinition = {
     slug: "npe-millones-consumidores-asincronos",
     image: "/blog/npe-card.png",
-    date: "19/02/2024",
-    updatedAt: "19/02/2024",
+    date: "27/01/2024",
+    updatedAt: "27/01/2024",
     tags: ["Architecture", "Java", "Kafka"],
     locales: {
         es: {

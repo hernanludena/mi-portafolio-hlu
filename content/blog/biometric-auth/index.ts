@@ -5,8 +5,8 @@ import { biometricAuthContentEn } from "./en-content";
 export const biometricAuthPostDefinition: BlogPostDefinition = {
     slug: "replay-resistant-biometric-auth",
     image: "/blog/biometric-auth-card.png",
-    date: "03/11/2024",
-    updatedAt: "03/11/2024",
+    date: "25/10/2024",
+    updatedAt: "25/10/2024",
     tags: ["SoftwareArchitecture", "CyberSecurity", "Authentication", "Java"],
     locales: {
         es: {

@@ -5,8 +5,8 @@ import { agenticOsContentEn } from "./en-content";
 export const agenticOsPostDefinition: BlogPostDefinition = {
     slug: "from-prompt-engineering-to-agentic-os",
     image: "/blog/agentic-os-card.png",
-    date: "12/08/2026",
-    updatedAt: "12/08/2026",
+    date: "19/05/2026",
+    updatedAt: "19/05/2026",
     tags: [
         "AI",
         "Agents",

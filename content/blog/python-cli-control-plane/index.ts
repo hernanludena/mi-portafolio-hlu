@@ -5,8 +5,8 @@ import { pythonCliControlPlaneContentEn } from "./en-content";
 export const pythonCliControlPlanePostDefinition: BlogPostDefinition = {
     slug: "python-cli-developer-control-plane",
     image: "/blog/python-cli-control-plane-card-v2.png",
-    date: "09/05/2026",
-    updatedAt: "09/05/2026",
+    date: "11/03/2026",
+    updatedAt: "11/03/2026",
     tags: ["Python", "CLI", "Architecture", "DevOps", "AI", "MCP"],
     locales: {
         es: {
